@@ -1,16 +1,17 @@
-// src/components/layout/Navigation.tsx
 import React from 'react';
+import styles from '../../styles/NavigationBar.module.css';
 
-const Navigation: React.FC = () => {
+const NavigationBar: React.FC = () => {
   return (
-    <nav>
+    <nav className={styles.navigationBar}>
       <ul>
         <li><a href="/">Accueil</a></li>
         <li><a href="/formations">Formations</a></li>
+        <li><a href="/about">À propos</a></li>
         <li><a href="/contact">Contact</a></li>
       </ul>
     </nav>
   );
 };
 
-export default Navigation;
+export default NavigationBar;

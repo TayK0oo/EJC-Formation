@@ -1,0 +1,37 @@
+.navigationBar {
+  position: sticky; /* Rendre la barre de navigation collante */
+  top: 0; /* Positionner en haut de la page */
+  background-color: var(--color-blue); /* Couleur de fond */
+  z-index: 1000; /* Assurez-vous qu'elle soit au-dessus d'autres éléments */
+}
+
+.navigationBar ul {
+    list-style-type: none;
+    display: flex;
+    justify-content: center;
+  }
+  
+  .navigationBar li {
+    margin: 0 15px;
+  }
+  
+  .navigationBar a {
+    color: var(--color-white);
+    text-decoration: none;
+    font-weight: bold;
+  }
+  
+  .navigationBar a:hover {
+    text-decoration: underline;
+  }
+  
+  @media (max-width: 768px) {
+    .navigationBar ul {
+      flex-direction: column;
+      align-items: center;
+    }
+  
+    .navigationBar li {
+      margin: 10px 0;
+    }
+  }

@@ -90,7 +90,10 @@ define('FTP_SSL', false); // Changez en 'true' pour utiliser FTPS
 define('FS_METHOD', 'direct');
 define('WP_DEBUG_LOG', true);
 define('WP_DEBUG_DISPLAY', false);
-
+define( 'ECOMMERCENG_WOOCOMMERCE_QUERY_STRING_AUTH', true );
+define('FORCE_SSL_ADMIN', false);
+define('WP_HOME','http://localhost/EJC-Formation/formation-site-wordpress');
+define('WP_SITEURL','http://localhost/EJC-Formation/formation-site-wordpress');
 
 /* That's all, stop editing! Happy publishing. */
 

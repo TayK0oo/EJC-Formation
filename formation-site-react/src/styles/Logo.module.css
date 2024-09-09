@@ -1,0 +1,12 @@
+.logo {
+    
+    font-size: 24px;
+    font-weight: bold;
+    color: var(--color-blue);
+  }
+  
+  @media (max-width: 768px) {
+    .logo {
+      margin-bottom: 10px;
+    }
+  }

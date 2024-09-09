@@ -13,6 +13,7 @@
     "@types/react-dom": "^18.3.0",
     "axios": "^1.7.7",
     "crypto-js": "^4.2.0",
+    "https": "^1.0.0",
     "react": "^18.3.1",
     "react-dom": "^18.3.1",
     "react-scripts": "5.0.1",
@@ -20,10 +21,9 @@
     "web-vitals": "^2.1.4"
   },
   "scripts": {
-    "start": "react-scripts start",
-    "build": "react-scripts build",
-    "test": "react-scripts test",
-    "eject": "react-scripts eject"
+    "start-https": "HTTPS=true SSL_CRT_FILE=/opt/lampp/etc/ssl.crt/server.crt SSL_KEY_FILE=/opt/lampp/etc/ssl.key/server.key react-scripts start",
+    "stop": "kill $(lsof -t -i:3000)",
+    "start": "react-scripts start"
   },
   "eslintConfig": {
     "extends": [
@@ -45,5 +45,6 @@
   },
   "devDependencies": {
     "@types/crypto-js": "^4.2.2"
-  }
+  },
+  "proxy": "https://localhost/EJC-Formation/formation-site-wordpress/"
 }
