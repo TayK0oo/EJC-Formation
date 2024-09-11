@@ -1,29 +1,133 @@
-.searchBar {
-    display: flex;
-    max-width: 400px;
-    width: 100%;
+.wrapper .input {
+  color: var(--color-black);
+  font: 1em/1.5 Hind, sans-serif;
+}
+
+.wrapper form,
+.wrapper .input,
+.wrapper .caret {
+  margin: auto;
+}
+
+.wrapper form {
+  position: relative;
+  width: 100%;
+  max-width: 30em;
+}
+
+.wrapper .input,
+.wrapper .caret {
+  display: block;
+  transition: all calc(1s * 0.5) linear;
+}
+
+.wrapper .input {
+  background: transparent;
+  border-radius: 50%;
+  border: 0.5em solid var(--color-black); /* Remplace box-shadow par une bordure */
+  caret-color: #255ff4;
+  width: 5em;
+  height: 5em;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+}
+
+.wrapper .input:focus,
+.wrapper .input:valid {
+  background: var(--color-white); /* Changé de var(--color-green) à var(--color-white) */
+  border-radius: 0.25em;
+  border: 1px solid var(--color-black); /* Ajout d'une bordure fine */
+  padding: 0.75em 1em;
+  transition-duration: calc(1s * 0.25);
+  transition-delay: calc(1s * 0.25);
+  width: 100%;
+  height: 3em;
+}
+
+.wrapper .caret {
+  background: var(--color-black); /* Utilisation de la même couleur que la bordure */
+  border-radius: 0 0.5em 0.5em 0.5em;
+  margin-bottom: -0.6em;
+  width: 0.5em;
+  height: 2em;
+  transform: translate(0,-1.5em) rotate(-35deg) translate(0,1.3125em);
+  transform-origin: 50% 0;
+}
+
+.wrapper .input:focus {
+  animation: showCaret 1s steps(1);
+  outline: transparent;
+}
+
+.wrapper .input:focus + .caret,
+.wrapper .input:valid + .caret {
+  animation: handleToCaret 1s linear;
+  background: transparent;
+  width: 1px;
+  height: 1.5em;
+  transform: translate(0,-1em) rotate(-180deg) translate(7.5em,-0.25em);
+}
+
+.wrapper .input::-webkit-search-decoration {
+  -webkit-appearance: none;
+}
+
+.wrapper label {
+  color: var(--color-white);
+  overflow: hidden;
+  position: absolute;
+  width: 0;
+  height: 0;
+}
+
+
+
+/* Animations */
+@keyframes showCaret {
+  from {
+    caret-color: transparent;
   }
-  
-  .searchBar input {
-    flex-grow: 1;
-    padding: 10px;
-    border: 1px solid var(--color-blue);
-    border-right: none;
-    border-radius: 5px 0 0 5px;
+  to {
+    caret-color: #255ff4;
   }
-  
-  .searchBar button {
-    padding: 10px 20px;
-    background-color: var(--color-blue);
-    color: var(--color-white);
-    border: none;
-    border-radius: 0 5px 5px 0;
-    cursor: pointer;
+}
+
+@keyframes handleToCaret {
+  from {
+    background: currentColor;
+    width: 0.5em;  /* Augmenté */
+    height: 2em;  /* Augmenté */
+    transform: translate(0,-1.5em) rotate(-45deg) translate(0,1.3125em);  /* Ajusté */
   }
-  
-  @media (max-width: 768px) {
-    .searchBar {
-      max-width: 100%;
-      margin-top: 10px;
-    }
+  25% {
+    background: currentColor;
+    width: 0.375em;
+    height: 1.5em;
+    transform: translate(0,-1.5em) rotate(-180deg) translate(0,1.3125em);
   }
+  50%, 62.5% {
+    background: #255ff4;
+    width: 1px;
+    height: 1.5em;
+    transform: translate(0,-1.5em) rotate(-180deg) translate(14em,2.5em);
+  }
+  75%, 99% {
+    background: #255ff4;
+    width: 1px;
+    height: 1.5em;
+    transform: translate(0,-1.5em) rotate(-180deg) translate(14em,-0.25em);
+  }
+  87.5% {
+    background: #255ff4;
+    width: 1px;
+    height: 1.5em;
+    transform: translate(0,-1.5em) rotate(-180deg) translate(14em,0.125em);
+  }
+  to {
+    background: transparent;
+    width: 1px;
+    height: 1.5em;
+    transform: translate(0,-1.5em) rotate(-180deg) translate(14em,-0.25em);
+  }
+}

@@ -1,0 +1,39 @@
+.formationDetail {
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 20px;
+  }
+  
+  .category {
+    color: #666;
+    font-style: italic;
+  }
+  
+  .mainInfo {
+    display: flex;
+    justify-content: space-between;
+    margin: 20px 0;
+  }
+  
+  .infoItem {
+    text-align: center;
+  }
+  
+  .description, .competences, .publicCible, .additionalInfo {
+    margin-bottom: 30px;
+  }
+  
+  h1 {
+    color: #333;
+  }
+  
+  h2 {
+    color: #444;
+    border-bottom: 1px solid #ddd;
+    padding-bottom: 10px;
+  }
+  
+  ul {
+    list-style-type: disc;
+    margin-left: 20px;
+  }

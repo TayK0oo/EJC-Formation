@@ -4,15 +4,14 @@
     position: fixed;
     right: 0;
     top : 50%;
-    margin:2%;
-    
+    margin:1%;
   }
   
   .icon {
     width: 30px;
     height: 30px;
     background-color: var(--color-white);
-    color: var(--color-blue);
+    color: var(--color-orange);
     display: flex;
     justify-content: center;
     align-items: center;
@@ -20,10 +19,6 @@
     border-radius: 50%;
     font-size: 14px;
     font-weight: bold;
+    border: 2px solid var(--color-green); /* Ajout de la propriété border */
   }
   
-  @media (max-width: 768px) {
-    .socialIcons {
-      margin-top: 10px;
-    }
-  }

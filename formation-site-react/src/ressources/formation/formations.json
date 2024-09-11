@@ -1,0 +1,571 @@
+{
+  "formations": [
+  {
+  "id": "GDP001",
+  "titre": "Gestion du temps",
+  "categorie": "GESTION DE PROJETS",
+  "duree": "14 heures",
+  "tarif": "800€",
+  "description": "Apprenez à optimiser votre temps et à augmenter votre productivité grâce à des techniques éprouvées de gestion du temps.",
+  "competencesAcquises": [
+  "Priorisation des tâches",
+  "Planification efficace",
+  "Techniques de concentration",
+  "Gestion des interruptions"
+  ],
+  "publicCible": [
+  "Professionnels",
+  "Managers",
+  "Entrepreneurs"
+  ],
+  "modalites": "En ligne",
+  "prerequis": "Aucun prérequis spécifique",
+  "lieu": "Plateforme d'apprentissage en ligne",
+  "createurId": "FORM001"
+  },
+  {
+  "id": "GDP002",
+  "titre": "Gestion de l'énergie",
+  "categorie": "GESTION DE PROJETS",
+  "duree": "10 heures",
+  "tarif": "600€",
+  "description": "Découvrez comment gérer votre énergie personnelle pour maintenir un haut niveau de performance tout au long de la journée.",
+  "competencesAcquises": [
+  "Gestion du stress",
+  "Techniques de récupération",
+  "Optimisation des cycles d'énergie",
+  "Habitudes de vie saine"
+  ],
+  "publicCible": [
+  "Tous professionnels",
+  "Étudiants"
+  ],
+  "modalites": "En ligne",
+  "prerequis": "Aucun prérequis spécifique",
+  "lieu": "Plateforme d'apprentissage en ligne",
+  "createurId": "FORM002"
+  },
+  {
+  "id": "GDP003",
+  "titre": "Gestion du cadre de vie",
+  "categorie": "GESTION DE PROJETS",
+  "duree": "12 heures",
+  "tarif": "700€",
+  "description": "Apprenez à optimiser votre environnement de travail pour améliorer votre productivité et votre bien-être.",
+  "competencesAcquises": [
+  "Organisation de l'espace de travail",
+  "Ergonomie",
+  "Gestion du bruit et des distractions",
+  "Création d'un environnement propice à la concentration"
+  ],
+  "publicCible": [
+  "Professionnels",
+  "Télétravailleurs",
+  "Entrepreneurs"
+  ],
+  "modalites": "En ligne",
+  "prerequis": "Aucun prérequis spécifique",
+  "lieu": "Plateforme d'apprentissage en ligne",
+  "createurId": "FORM003"
+  },
+  {
+  "id": "GDP004",
+  "titre": "Méthode de GDP",
+  "categorie": "GESTION DE PROJETS",
+  "duree": "20 heures",
+  "tarif": "1000€",
+  "description": "Maîtrisez les principales méthodes de gestion de projet pour mener vos projets avec succès.",
+  "competencesAcquises": [
+  "Planification de projet",
+  "Gestion des risques",
+  "Suivi et contrôle de projet",
+  "Méthodes agiles et traditionnelles"
+  ],
+  "publicCible": [
+  "Chefs de projet",
+  "Managers",
+  "Entrepreneurs"
+  ],
+  "modalites": "En ligne",
+  "prerequis": "Connaissance de base en gestion de projet",
+  "lieu": "Plateforme d'apprentissage en ligne",
+  "createurId": "FORM004"
+  },
+  {
+  "id": "ENT001",
+  "titre": "Penser comme un entrepreneur",
+  "categorie": "ENTREPRENEURIAT",
+  "duree": "20 heures",
+  "tarif": "1200€",
+  "description": "Développez une mentalité d'entrepreneur et apprenez à identifier les opportunités d'affaires.",
+  "competencesAcquises": [
+  "Analyse de marché",
+  "Pensée créative",
+  "Prise de risque calculée",
+  "Vision stratégique"
+  ],
+  "publicCible": [
+  "Entrepreneurs en herbe",
+  "Professionnels en reconversion"
+  ],
+  "modalites": "En ligne",
+  "prerequis": "Intérêt pour l'entrepreneuriat",
+  "lieu": "Plateforme d'apprentissage en ligne",
+  "createurId": "FORM005"
+  },
+  {
+  "id": "ENT002",
+  "titre": "Créer son entreprise",
+  "categorie": "ENTREPRENEURIAT",
+  "duree": "30 heures",
+  "tarif": "1500€",
+  "description": "Apprenez les étapes clés pour créer et lancer votre propre entreprise avec succès.",
+  "competencesAcquises": [
+  "Élaboration d'un business plan",
+  "Étude de marché",
+  "Aspects juridiques et financiers",
+  "Stratégie de lancement"
+  ],
+  "publicCible": [
+  "Entrepreneurs",
+  "Porteurs de projet"
+  ],
+  "modalites": "En ligne",
+  "prerequis": "Avoir un projet d'entreprise",
+  "lieu": "Plateforme d'apprentissage en ligne",
+  "createurId": "FORM006"
+  },
+  {
+  "id": "ENT003",
+  "titre": "Grandir son entreprise",
+  "categorie": "ENTREPRENEURIAT",
+  "duree": "25 heures",
+  "tarif": "1300€",
+  "description": "Découvrez les stratégies pour développer et faire croître votre entreprise de manière durable.",
+  "competencesAcquises": [
+  "Stratégies de croissance",
+  "Gestion financière avancée",
+  "Marketing et ventes",
+  "Management d'équipe"
+  ],
+  "publicCible": [
+  "Entrepreneurs établis",
+  "Dirigeants de PME"
+  ],
+  "modalites": "En ligne",
+  "prerequis": "Avoir une entreprise en activité",
+  "lieu": "Plateforme d'apprentissage en ligne",
+  "createurId": "FORM007"
+  },
+  {
+  "id": "ENT004",
+  "titre": "Durer en tant qu'entrepreneur",
+  "categorie": "ENTREPRENEURIAT",
+  "duree": "18 heures",
+  "tarif": "950€",
+  "description": "Apprenez à pérenniser votre activité entrepreneuriale et à surmonter les défis à long terme.",
+  "competencesAcquises": [
+  "Gestion de la résilience",
+  "Adaptation aux changements du marché",
+  "Planification stratégique à long terme",
+  "Équilibre vie professionnelle/personnelle"
+  ],
+  "publicCible": [
+  "Entrepreneurs expérimentés",
+  "Dirigeants d'entreprise"
+  ],
+  "modalites": "En ligne",
+  "prerequis": "Expérience entrepreneuriale",
+  "lieu": "Plateforme d'apprentissage en ligne",
+  "createurId": "FORM008"
+  },
+  {
+  "id": "COM001",
+  "titre": "Communication Non Violente",
+  "categorie": "COMMUNICATION",
+  "duree": "16 heures",
+  "tarif": "900€",
+  "description": "Maîtrisez les principes de la Communication Non Violente pour améliorer vos relations personnelles et professionnelles.",
+  "competencesAcquises": [
+  "Écoute active",
+  "Expression des besoins",
+  "Gestion des conflits",
+  "Empathie"
+  ],
+  "publicCible": [
+  "Managers",
+  "Équipes",
+  "Tout professionnel"
+  ],
+  "modalites": "En ligne",
+  "prerequis": "Aucun prérequis spécifique",
+  "lieu": "Plateforme d'apprentissage en ligne",
+  "createurId": "FORM009"
+  },
+  {
+  "id": "COM002",
+  "titre": "Communication assertive/bienveillante",
+  "categorie": "COMMUNICATION",
+  "duree": "14 heures",
+  "tarif": "850€",
+  "description": "Développez une communication assertive et bienveillante pour des interactions professionnelles plus efficaces et harmonieuses.",
+  "competencesAcquises": [
+  "Affirmation de soi",
+  "Feedback constructif",
+  "Gestion des émotions",
+  "Communication positive"
+  ],
+  "publicCible": [
+  "Managers",
+  "Équipes",
+  "Professionnels en relation client"
+  ],
+  "modalites": "En ligne",
+  "prerequis": "Aucun prérequis spécifique",
+  "lieu": "Plateforme d'apprentissage en ligne",
+  "createurId": "FORM010"
+  },
+  {
+  "id": "COM003",
+  "titre": "Outils de Communication en équipe",
+  "categorie": "COMMUNICATION",
+  "duree": "12 heures",
+  "tarif": "750€",
+  "description": "Découvrez et maîtrisez les outils essentiels pour une communication efficace au sein d'une équipe.",
+  "competencesAcquises": [
+  "Utilisation d'outils collaboratifs",
+  "Communication asynchrone",
+  "Gestion de réunions à distance",
+  "Partage d'information efficace"
+  ],
+  "publicCible": [
+  "Équipes de travail",
+  "Managers",
+  "Chefs de projet"
+  ],
+  "modalites": "En ligne",
+  "prerequis": "Connaissance de base en informatique",
+  "lieu": "Plateforme d'apprentissage en ligne",
+  "createurId": "FORM011"
+  },
+  {
+  "id": "EFF001",
+  "titre": "Valorisation des parcours",
+  "categorie": "EFFICACITE PROFESSIONNELLE / MOTIVATION",
+  "duree": "8 heures",
+  "tarif": "500€",
+  "description": "Apprenez à mettre en valeur votre parcours professionnel et à identifier vos compétences clés.",
+  "competencesAcquises": [
+  "Analyse de compétences",
+  "Rédaction de CV efficace",
+  "Préparation d'entretien",
+  "Personal branding"
+  ],
+  "publicCible": [
+  "Demandeurs d'emploi",
+  "Professionnels en transition"
+  ],
+  "modalites": "En ligne",
+  "prerequis": "Avoir un parcours professionnel à valoriser",
+  "lieu": "Plateforme d'apprentissage en ligne",
+  "createurId": "FORM012"
+  },
+  {
+  "id": "EFF002",
+  "titre": "Définition du rêve personnel",
+  "categorie": "EFFICACITE PROFESSIONNELLE / MOTIVATION",
+  "duree": "10 heures",
+  "tarif": "600€",
+  "description": "Identifiez et définissez votre rêve personnel pour aligner votre vie professionnelle avec vos aspirations.",
+  "competencesAcquises": [
+  "Introspection guidée",
+  "Définition d'objectifs de vie",
+  "Planification à long terme",
+  "Alignement vie personnelle/professionnelle"
+  ],
+  "publicCible": [
+  "Tout professionnel en quête de sens",
+  "Personnes en reconversion"
+  ],
+  "modalites": "En ligne",
+  "prerequis": "Aucun prérequis spécifique",
+  "lieu": "Plateforme d'apprentissage en ligne",
+  "createurId": "FORM013"
+  },
+  {
+  "id": "EFF003",
+  "titre": "Fresque du conflit",
+  "categorie": "EFFICACITE PROFESSIONNELLE / MOTIVATION",
+  "duree": "6 heures",
+  "tarif": "400€",
+  "description": "Apprenez à analyser et résoudre les conflits de manière créative et collaborative.",
+  "competencesAcquises": [
+  "Analyse de conflits",
+  "Techniques de résolution créative",
+  "Communication en situation de conflit",
+  "Médiation"
+  ],
+  "publicCible": [
+  "Managers",
+  "Équipes",
+  "Professionnels RH"
+  ],
+  "modalites": "En ligne",
+  "prerequis": "Aucun prérequis spécifique",
+  "lieu": "Plateforme d'apprentissage en ligne",
+  "createurId": "FORM014"
+  },
+  {
+  "id": "EFF004",
+  "titre": "Formation géométrique",
+  "categorie": "EFFICACITE PROFESSIONNELLE / MOTIVATION",
+  "duree": "8 heures",
+  "tarif": "450€",
+  "description": "Utilisez des concepts géométriques pour améliorer votre pensée structurée et votre résolution de problèmes.",
+  "competencesAcquises": [
+  "Pensée structurée",
+  "Résolution de problèmes complexes",
+  "Visualisation de concepts",
+  "Créativité appliquée"
+  ],
+  "publicCible": [
+  "Professionnels de tous secteurs",
+  "Managers",
+  "Analystes"
+  ],
+  "modalites": "En ligne",
+  "prerequis": "Aucun prérequis spécifique",
+  "lieu": "Plateforme d'apprentissage en ligne",
+  "createurId": "FORM015"
+  },
+  {
+  "id": "EFF005",
+  "titre": "Formation noclash.io Qualiopi",
+  "categorie": "EFFICACITE PROFESSIONNELLE / MOTIVATION",
+  "duree": "15 heures",
+  "tarif": "850€",
+  "description": "Maîtrisez la plateforme noclash.io et préparez-vous à la certification Qualiopi.",
+  "competencesAcquises": [
+  "Utilisation avancée de noclash.io",
+  "Compréhension des critères Qualiopi",
+  "Préparation à l'audit",
+  "Amélioration continue des processus de formation"
+  ],
+  "publicCible": [
+  "Organismes de formation",
+  "Formateurs indépendants"
+  ],
+  "modalites": "En ligne",
+  "prerequis": "Connaissance de base en formation professionnelle",
+  "lieu": "Plateforme d'apprentissage en ligne",
+  "createurId": "FORM016"
+},
+{
+  "id": "EFF006",
+  "titre": "Sociogramme 3D",
+  "categorie": "EFFICACITE PROFESSIONNELLE / MOTIVATION",
+  "duree": "10 heures",
+  "tarif": "600€",
+  "description": "Utilisez le sociogramme 3D pour analyser les dynamiques relationnelles au sein d'une équipe.",
+  "competencesAcquises": [
+    "Analyse des relations interpersonnelles",
+    "Développement de la cohésion d'équipe",
+    "Identification des leaders informels",
+    "Amélioration de la communication"
+  ],
+  "publicCible": [
+    "Managers",
+    "Équipes",
+    "Professionnels RH"
+  ],
+  "modalites": "En ligne",
+  "prerequis": "Aucun prérequis spécifique",
+  "lieu": "Plateforme d'apprentissage en ligne",
+  "createurId": "FORM017"
+},
+{
+  "id": "EFF007",
+  "titre": "Synergie score",
+  "categorie": "EFFICACITE PROFESSIONNELLE / MOTIVATION",
+  "duree": "8 heures",
+  "tarif": "500€",
+  "description": "Évaluez et améliorez la synergie au sein de votre équipe grâce à des outils d'analyse adaptés.",
+  "competencesAcquises": [
+    "Évaluation de la synergie d'équipe",
+    "Techniques d'amélioration collaborative",
+    "Mise en place d'objectifs communs",
+    "Suivi des progrès"
+  ],
+  "publicCible": [
+    "Équipes de travail",
+    "Managers",
+    "Chefs de projet"
+  ],
+  "modalites": "En ligne",
+  "prerequis": "Aucun prérequis spécifique",
+  "lieu": "Plateforme d'apprentissage en ligne",
+  "createurId": "FORM018"
+},
+{
+  "id": "CRE001",
+  "titre": "Art thérapie",
+  "categorie": "CREATIVITE / ANIMATION",
+  "duree": "20 heures",
+  "tarif": "1200€",
+  "description": "Découvrez l'art thérapie comme un outil d'expression et de développement personnel.",
+  "competencesAcquises": [
+    "Techniques de création artistique",
+    "Expression des émotions",
+    "Gestion du stress",
+    "Développement personnel"
+  ],
+  "publicCible": [
+    "Personnes en quête de bien-être",
+    "Professionnels de la santé",
+    "Éducateurs"
+  ],
+  "modalites": "En ligne",
+  "prerequis": "Aucun prérequis spécifique",
+  "lieu": "Plateforme d'apprentissage en ligne",
+  "createurId": "FORM019"
+},
+{
+  "id": "CRE002",
+  "titre": "Mise en mouvement d'un groupe",
+  "categorie": "CREATIVITE / ANIMATION",
+  "duree": "12 heures",
+  "tarif": "700€",
+  "description": "Apprenez à animer des groupes en utilisant des techniques de mise en mouvement et d'interaction.",
+  "competencesAcquises": [
+    "Techniques d'animation de groupe",
+    "Gestion des dynamiques de groupe",
+    "Créativité en animation",
+    "Communication non verbale"
+  ],
+  "publicCible": [
+    "Animateurs",
+    "Éducateurs",
+    "Professionnels de l'animation"
+  ],
+  "modalites": "En ligne",
+  "prerequis": "Aucun prérequis spécifique",
+  "lieu": "Plateforme d'apprentissage en ligne",
+  "createurId": "FORM020"
+},
+{
+  "id": "MAN001",
+  "titre": "Leadership",
+  "categorie": "MANAGEMENT",
+  "duree": "16 heures",
+  "tarif": "900€",
+  "description": "Développez vos compétences en leadership pour inspirer et motiver votre équipe.",
+  "competencesAcquises": [
+    "Styles de leadership",
+    "Motivation des équipes",
+    "Gestion des conflits",
+    "Communication efficace"
+  ],
+  "publicCible": [
+    "Managers",
+    "Chefs d'équipe",
+    "Entrepreneurs"
+  ],
+  "modalites": "En ligne",
+  "prerequis": "Aucun prérequis spécifique",
+  "lieu": "Plateforme d'apprentissage en ligne",
+  "createurId": "FORM021"
+},
+{
+  "id": "MAN002",
+  "titre": "Prise de décision",
+  "categorie": "MANAGEMENT",
+  "duree": "14 heures",
+  "tarif": "800€",
+  "description": "Apprenez des techniques de prise de décision efficaces pour des choix stratégiques.",
+  "competencesAcquises": [
+    "Analyse des options",
+    "Évaluation des risques",
+    "Prise de décision en groupe",
+    "Techniques de brainstorming"
+  ],
+  "publicCible": [
+    "Managers",
+    "Chefs de projet",
+    "Dirigeants"
+  ],
+  "modalites": "En ligne",
+  "prerequis": "Aucun prérequis spécifique",
+  "lieu": "Plateforme d'apprentissage en ligne",
+  "createurId": "FORM022"
+},
+{
+  "id": "SI001",
+  "titre": "Création",
+  "categorie": "SYSTEMES D'INFORMATION",
+  "duree": "18 heures",
+  "tarif": "950€",
+  "description": "Apprenez les bases de la création de systèmes d'information adaptés aux besoins de votre entreprise.",
+  "competencesAcquises": [
+    "Analyse des besoins",
+    "Conception de systèmes",
+    "Développement de bases de données",
+    "Gestion de projets SI"
+  ],
+  "publicCible": [
+    "Professionnels des SI",
+    "Chefs de projet",
+    "Entrepreneurs"
+  ],
+  "modalites": "En ligne",
+  "prerequis": "Connaissance de base en informatique",
+  "lieu": "Plateforme d'apprentissage en ligne",
+  "createurId": "FORM023"
+},
+{
+  "id": "SI002",
+  "titre": "Outils de gestion",
+  "categorie": "SYSTEMES D'INFORMATION",
+  "duree": "12 heures",
+  "tarif": "700€",
+  "description": "Découvrez les outils de gestion des systèmes d'information pour optimiser vos processus.",
+  "competencesAcquises": [
+    "Utilisation de logiciels de gestion",
+    "Gestion des données",
+    "Suivi des performances",
+    "Amélioration continue"
+  ],
+  "publicCible": [
+    "Managers",
+    "Professionnels des SI",
+    "Chefs de projet"
+  ],
+  "modalites": "En ligne",
+  "prerequis": "Connaissance de base en informatique",
+  "lieu": "Plateforme d'apprentissage en ligne",
+  "createurId": "FORM024"
+},
+{
+  "id": "SI003",
+  "titre": "Management équipe SI pluridisciplinaire",
+  "categorie": "SYSTEMES D'INFORMATION",
+  "duree": "15 heures",
+  "tarif": "850€",
+  "description": "Apprenez à gérer une équipe pluridisciplinaire dans le domaine des systèmes d'information.",
+  "competencesAcquises": [
+    "Gestion de la diversité des compétences",
+    "Communication interdisciplinaire",
+    "Gestion de projets complexes",
+    "Leadership dans un environnement technique"
+  ],
+  "publicCible": [
+    "Chefs de projet",
+    "Managers d'équipe",
+    "Professionnels des SI"
+  ],
+  "modalites": "En ligne",
+  "prerequis": "Expérience en gestion d'équipe",
+  "lieu": "Plateforme d'apprentissage en ligne",
+  "createurId": "FORM025"
+}
+]
+}

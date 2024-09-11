@@ -1,6 +1,6 @@
 // src/hooks/useWordPress.ts
 import { useState, useEffect } from 'react';
-import { getWordPressContent } from '../services/wordpress';
+import { getWordPressContent } from '../../services/wordpress';
 
 export const useWordPressContent = (contentType: string) => {
   const [content, setContent] = useState(null);

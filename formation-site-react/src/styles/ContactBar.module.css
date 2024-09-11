@@ -1,9 +1,40 @@
 .contactBar {
-    background-color: var(--color-red);
+    background-color: var(--color-mustard);
     color: var(--color-white);
     padding: 5px 20px;
     display: flex;
     justify-content: space-between;
+  }
+
+  .contactBar img {
+    margin-right: 8px;
+    vertical-align: middle;
+    width: 20px;
+    height: 20px;
+  }
+  .contactBar a {
+    color: var(--color-white);
+    text-decoration: none;
+  }
+
+  .contactBar a:hover {
+    text-decoration: underline;
+  }
+
+  .phoneOptions {
+    display: flex;
+    gap: 10px;
+    margin-top: 5px;
+  }
+  
+  .phoneOptions button {
+    padding: 5px 10px;
+    cursor: pointer;
+
+    background-color: var(--color-green);
+    border: 0;
+    border-radius: 30px;
+    color: var(--color-white);
   }
   
   @media (max-width: 768px) {

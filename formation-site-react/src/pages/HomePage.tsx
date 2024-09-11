@@ -1,52 +1,47 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import Header from '../components/header/Header';
-import CourseBlock from '../components/common/CourseBlock';
 import SearchBar from '../components/home/SearchBar';
 import NavigationBar from '../components/header/NavigationBar';
+import Logo from '../components/common/Logo';
+import FormationsOverView from '../components/home/FormationsOverView';
 import styles from '../styles/HomePage.module.css';
+import { HomeController } from '../controllers/HomeController';
+import { Formation } from '../models/Formation';
 
-const HomePage: React.FC = () => {
-  const courses = [
-    { title: 'Formation 1', description: 'Description de la formation 1', imageUrl: 'url1' },
-    { title: 'Formation 2', description: 'Description de la formation 2', imageUrl: 'url2' },
-    { title: 'Formation 3', description: 'Description de la formation 3', imageUrl: 'url3' },
-  ];
+interface HomePageProps {
+  navigate: (path: string) => void;
+}
+
+const HomePage: React.FC<HomePageProps> = ({ navigate }) => {
+  const [formations, setFormations] = useState<Formation[]>([]);
+
+  useEffect(() => {
+    const fetchData = async () => {
+      const { formations } = await HomeController.getHomePageData();
+      setFormations(formations);
+    };
+    fetchData();
+  }, []);
 
   return (
     <div className={styles.homePage}>
       <Header />
-
       <NavigationBar />
-
-
       <div className={styles.logoSearchContainer}>
-        {/* <Logo /> */}
-        <SearchBar />
+        <Logo />
+        <div className={styles.searchBarWrapper}>
+          <div className={styles.groupBubble}>
+            <div className={`${styles.searchBubble} ${styles.bubble1}`}></div>
+            <div className={`${styles.searchBubble} ${styles.bubble3}`}></div>
+            <div className={`${styles.searchBubble} ${styles.bubble4}`}></div>
+          </div>
+          <div>
+            <SearchBar />
+          </div>
+        </div>
       </div>
-
-
       <main className={styles.mainContent}>
-        <h1>Nos formations</h1>
-        <div className={styles.courseGrid}>
-          {courses.map((course, index) => (
-            <CourseBlock key={index} {...course} />
-          ))}
-        </div>
-        <div className={styles.courseGrid}>
-          {courses.map((course, index) => (
-            <CourseBlock key={index} {...course} />
-          ))}
-        </div>
-        <div className={styles.courseGrid}>
-          {courses.map((course, index) => (
-            <CourseBlock key={index} {...course} />
-          ))}
-        </div>
-        <div className={styles.courseGrid}>
-          {courses.map((course, index) => (
-            <CourseBlock key={index} {...course} />
-          ))}
-        </div>
+        <FormationsOverView formations={formations} navigate={navigate} />
       </main>
     </div>
   );

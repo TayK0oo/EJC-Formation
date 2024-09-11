@@ -1,12 +1,23 @@
 .logo {
-    
-    font-size: 24px;
-    font-weight: bold;
-    color: var(--color-blue);
+  display: flex;  /* Changé de inline-block à flex */
+  justify-content: center;  /* Centre horizontalement */
+  align-items: center;  /* Centre verticalement */
+  margin-top: 3%;
+}
+
+.logo img {
+  background-color: white;
+  border-radius: 20%;
+  height: auto;
+}
+
+@media (max-width: 768px) {
+  .logo {
+    margin-bottom: 10px;
   }
-  
-  @media (max-width: 768px) {
-    .logo {
-      margin-bottom: 10px;
-    }
+
+  .logo img {
+    width: 50vw;
+    max-width: 80%;  /* Limite la largeur de l'image à 80% de la largeur du conteneur en mode téléphone */
   }
+}

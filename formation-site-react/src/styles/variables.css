@@ -1,8 +1,40 @@
+@font-face {
+  font-family: 'TransformaSans';
+  src: url('../ressources/fonts/TransformaSans_Trial-ExtraBold-BF660ca8e06ac5b.otf') format('opentype');
+  font-weight: 700; 
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'Transforma Script';
+  src: url('../ressources/fonts/TransformaScript_Trial-SemiBold-BF660ca8dfdec41.otf') format('opentype');
+  font-weight: 700; /* Puisque c'est une version "Black" */
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'Luciole';
+  src: url('../ressources/fonts/Luciole-Regular.ttf') format('opentype');
+  font-weight: 600; 
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'Luciole Bold';
+  src: url('../ressources/fonts/Luciole-Bold.ttf') format('opentype');
+  font-weight: 900; 
+  font-style: normal;
+}
+
 :root {
-    --color-mustard: #E1AD01;
-    --color-red: #D64045;
-    --color-blue: #1C77C3;
-    --color-green: #39A9DB;
+    --color-mustard: #F8A53A;
+    --color-orange: #D67541;
+    --color-green: #6EC7AA;
     --color-white: #FFFFFF;
     --color-black: #333333;
+
+    --font-family-transforma: 'TransformaSans';
+    --font-family-luciole : 'Luciole';
+    --font-family-luciole-bold : 'Luciole Bold';
+    --font-family-transforma-script : 'Transforma Script';
   }
