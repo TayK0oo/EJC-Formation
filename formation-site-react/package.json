@@ -21,9 +21,6 @@
     "web-vitals": "^2.1.4"
   },
   "scripts": {
-    "build": "react-scripts build",
-    "predeploy": "npm run build",
-    "deploy": "gh-pages -d build -e formation-site-react",
     "start-https": "HTTPS=true SSL_CRT_FILE=/opt/lampp/etc/ssl.crt/server.crt SSL_KEY_FILE=/opt/lampp/etc/ssl.key/server.key react-scripts start",
     "stop": "kill $(lsof -t -i:3000)",
     "start": "react-scripts start"
