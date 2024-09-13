@@ -6,9 +6,13 @@ import { Formation } from '../../models/Formation';
 interface FormationsOverViewProps {
   formations: Formation[];
   navigate: (path: string) => void;
+  onFilterChange: () => void;
 }
 
-const FormationsOverView: React.FC<FormationsOverViewProps> = ({ formations, navigate }) => {
+const FormationsOverView: React.FC<FormationsOverViewProps> = ({ formations, navigate, onFilterChange }) => {
+  // shuffle formations
+  formations.sort(() => Math.random() - 0.5);
+
   return (
     <div className={styles.formations}>
       <h1>Nos formations</h1>

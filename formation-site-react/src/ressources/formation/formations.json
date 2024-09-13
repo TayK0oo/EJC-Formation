@@ -4,7 +4,7 @@
   "id": "GDP001",
   "titre": "Gestion du temps",
   "categorie": "GESTION DE PROJETS",
-  "duree": "14 heures",
+  "duree": "14h",
   "tarif": "800€",
   "description": "Apprenez à optimiser votre temps et à augmenter votre productivité grâce à des techniques éprouvées de gestion du temps.",
   "competencesAcquises": [
@@ -27,7 +27,7 @@
   "id": "GDP002",
   "titre": "Gestion de l'énergie",
   "categorie": "GESTION DE PROJETS",
-  "duree": "10 heures",
+  "duree": "10h",
   "tarif": "600€",
   "description": "Découvrez comment gérer votre énergie personnelle pour maintenir un haut niveau de performance tout au long de la journée.",
   "competencesAcquises": [
@@ -49,7 +49,7 @@
   "id": "GDP003",
   "titre": "Gestion du cadre de vie",
   "categorie": "GESTION DE PROJETS",
-  "duree": "12 heures",
+  "duree": "12h",
   "tarif": "700€",
   "description": "Apprenez à optimiser votre environnement de travail pour améliorer votre productivité et votre bien-être.",
   "competencesAcquises": [
@@ -72,7 +72,7 @@
   "id": "GDP004",
   "titre": "Méthode de GDP",
   "categorie": "GESTION DE PROJETS",
-  "duree": "20 heures",
+  "duree": "20h",
   "tarif": "1000€",
   "description": "Maîtrisez les principales méthodes de gestion de projet pour mener vos projets avec succès.",
   "competencesAcquises": [
@@ -95,7 +95,7 @@
   "id": "ENT001",
   "titre": "Penser comme un entrepreneur",
   "categorie": "ENTREPRENEURIAT",
-  "duree": "20 heures",
+  "duree": "20h",
   "tarif": "1200€",
   "description": "Développez une mentalité d'entrepreneur et apprenez à identifier les opportunités d'affaires.",
   "competencesAcquises": [
@@ -117,7 +117,7 @@
   "id": "ENT002",
   "titre": "Créer son entreprise",
   "categorie": "ENTREPRENEURIAT",
-  "duree": "30 heures",
+  "duree": "30h",
   "tarif": "1500€",
   "description": "Apprenez les étapes clés pour créer et lancer votre propre entreprise avec succès.",
   "competencesAcquises": [
@@ -139,7 +139,7 @@
   "id": "ENT003",
   "titre": "Grandir son entreprise",
   "categorie": "ENTREPRENEURIAT",
-  "duree": "25 heures",
+  "duree": "25h",
   "tarif": "1300€",
   "description": "Découvrez les stratégies pour développer et faire croître votre entreprise de manière durable.",
   "competencesAcquises": [
@@ -161,7 +161,7 @@
   "id": "ENT004",
   "titre": "Durer en tant qu'entrepreneur",
   "categorie": "ENTREPRENEURIAT",
-  "duree": "18 heures",
+  "duree": "18h",
   "tarif": "950€",
   "description": "Apprenez à pérenniser votre activité entrepreneuriale et à surmonter les défis à long terme.",
   "competencesAcquises": [
@@ -183,7 +183,7 @@
   "id": "COM001",
   "titre": "Communication Non Violente",
   "categorie": "COMMUNICATION",
-  "duree": "16 heures",
+  "duree": "16h",
   "tarif": "900€",
   "description": "Maîtrisez les principes de la Communication Non Violente pour améliorer vos relations personnelles et professionnelles.",
   "competencesAcquises": [
@@ -204,9 +204,9 @@
   },
   {
   "id": "COM002",
-  "titre": "Communication assertive/bienveillante",
+  "titre": "Communication assertive / bienveillante",
   "categorie": "COMMUNICATION",
-  "duree": "14 heures",
+  "duree": "14h",
   "tarif": "850€",
   "description": "Développez une communication assertive et bienveillante pour des interactions professionnelles plus efficaces et harmonieuses.",
   "competencesAcquises": [
@@ -229,7 +229,7 @@
   "id": "COM003",
   "titre": "Outils de Communication en équipe",
   "categorie": "COMMUNICATION",
-  "duree": "12 heures",
+  "duree": "12h",
   "tarif": "750€",
   "description": "Découvrez et maîtrisez les outils essentiels pour une communication efficace au sein d'une équipe.",
   "competencesAcquises": [
@@ -252,7 +252,7 @@
   "id": "EFF001",
   "titre": "Valorisation des parcours",
   "categorie": "EFFICACITE PROFESSIONNELLE / MOTIVATION",
-  "duree": "8 heures",
+  "duree": "8h",
   "tarif": "500€",
   "description": "Apprenez à mettre en valeur votre parcours professionnel et à identifier vos compétences clés.",
   "competencesAcquises": [
@@ -274,7 +274,7 @@
   "id": "EFF002",
   "titre": "Définition du rêve personnel",
   "categorie": "EFFICACITE PROFESSIONNELLE / MOTIVATION",
-  "duree": "10 heures",
+  "duree": "10h",
   "tarif": "600€",
   "description": "Identifiez et définissez votre rêve personnel pour aligner votre vie professionnelle avec vos aspirations.",
   "competencesAcquises": [
@@ -296,7 +296,7 @@
   "id": "EFF003",
   "titre": "Fresque du conflit",
   "categorie": "EFFICACITE PROFESSIONNELLE / MOTIVATION",
-  "duree": "6 heures",
+  "duree": "6h",
   "tarif": "400€",
   "description": "Apprenez à analyser et résoudre les conflits de manière créative et collaborative.",
   "competencesAcquises": [
@@ -319,7 +319,7 @@
   "id": "EFF004",
   "titre": "Formation géométrique",
   "categorie": "EFFICACITE PROFESSIONNELLE / MOTIVATION",
-  "duree": "8 heures",
+  "duree": "8h",
   "tarif": "450€",
   "description": "Utilisez des concepts géométriques pour améliorer votre pensée structurée et votre résolution de problèmes.",
   "competencesAcquises": [
@@ -342,7 +342,7 @@
   "id": "EFF005",
   "titre": "Formation noclash.io Qualiopi",
   "categorie": "EFFICACITE PROFESSIONNELLE / MOTIVATION",
-  "duree": "15 heures",
+  "duree": "15h",
   "tarif": "850€",
   "description": "Maîtrisez la plateforme noclash.io et préparez-vous à la certification Qualiopi.",
   "competencesAcquises": [
@@ -364,7 +364,7 @@
   "id": "EFF006",
   "titre": "Sociogramme 3D",
   "categorie": "EFFICACITE PROFESSIONNELLE / MOTIVATION",
-  "duree": "10 heures",
+  "duree": "10h",
   "tarif": "600€",
   "description": "Utilisez le sociogramme 3D pour analyser les dynamiques relationnelles au sein d'une équipe.",
   "competencesAcquises": [
@@ -387,7 +387,7 @@
   "id": "EFF007",
   "titre": "Synergie score",
   "categorie": "EFFICACITE PROFESSIONNELLE / MOTIVATION",
-  "duree": "8 heures",
+  "duree": "8h",
   "tarif": "500€",
   "description": "Évaluez et améliorez la synergie au sein de votre équipe grâce à des outils d'analyse adaptés.",
   "competencesAcquises": [
@@ -410,7 +410,7 @@
   "id": "CRE001",
   "titre": "Art thérapie",
   "categorie": "CREATIVITE / ANIMATION",
-  "duree": "20 heures",
+  "duree": "20h",
   "tarif": "1200€",
   "description": "Découvrez l'art thérapie comme un outil d'expression et de développement personnel.",
   "competencesAcquises": [
@@ -433,7 +433,7 @@
   "id": "CRE002",
   "titre": "Mise en mouvement d'un groupe",
   "categorie": "CREATIVITE / ANIMATION",
-  "duree": "12 heures",
+  "duree": "12h",
   "tarif": "700€",
   "description": "Apprenez à animer des groupes en utilisant des techniques de mise en mouvement et d'interaction.",
   "competencesAcquises": [
@@ -456,7 +456,7 @@
   "id": "MAN001",
   "titre": "Leadership",
   "categorie": "MANAGEMENT",
-  "duree": "16 heures",
+  "duree": "16h",
   "tarif": "900€",
   "description": "Développez vos compétences en leadership pour inspirer et motiver votre équipe.",
   "competencesAcquises": [
@@ -479,7 +479,7 @@
   "id": "MAN002",
   "titre": "Prise de décision",
   "categorie": "MANAGEMENT",
-  "duree": "14 heures",
+  "duree": "14h",
   "tarif": "800€",
   "description": "Apprenez des techniques de prise de décision efficaces pour des choix stratégiques.",
   "competencesAcquises": [
@@ -499,10 +499,10 @@
   "createurId": "FORM022"
 },
 {
-  "id": "SI001",
+  "id": "SIN001",
   "titre": "Création",
   "categorie": "SYSTEMES D'INFORMATION",
-  "duree": "18 heures",
+  "duree": "18h",
   "tarif": "950€",
   "description": "Apprenez les bases de la création de systèmes d'information adaptés aux besoins de votre entreprise.",
   "competencesAcquises": [
@@ -522,10 +522,10 @@
   "createurId": "FORM023"
 },
 {
-  "id": "SI002",
+  "id": "SIN002",
   "titre": "Outils de gestion",
   "categorie": "SYSTEMES D'INFORMATION",
-  "duree": "12 heures",
+  "duree": "12h",
   "tarif": "700€",
   "description": "Découvrez les outils de gestion des systèmes d'information pour optimiser vos processus.",
   "competencesAcquises": [
@@ -545,10 +545,10 @@
   "createurId": "FORM024"
 },
 {
-  "id": "SI003",
+  "id": "SIN003",
   "titre": "Management équipe SI pluridisciplinaire",
   "categorie": "SYSTEMES D'INFORMATION",
-  "duree": "15 heures",
+  "duree": "15h",
   "tarif": "850€",
   "description": "Apprenez à gérer une équipe pluridisciplinaire dans le domaine des systèmes d'information.",
   "competencesAcquises": [

@@ -1,13 +1,13 @@
 import React, { useState } from 'react';
 import styles from '../../styles/NavigationBar.module.css';
 import navStyles from '../../styles/NavSideBar.module.css';
-import gestionProjetIcon from '../../ressources/images/gestion_projet.png';
-import entrepreunariatIcon from '../../ressources/images/entrepreunariat.png';
-import efficaciteIcon from '../../ressources/images/motivation.png';
-import creatifIcon from '../../ressources/images/creatif.png';
-import communicationIcon from '../../ressources/images/communication.png';
-import systemeInfoIcon from '../../ressources/images/systeme_info.png';
-import managementIcon from '../../ressources/images/management.png';
+import gestionProjetIcon from '../../ressources/images/categories/GDP.png';
+import entrepreunariatIcon from '../../ressources/images/categories/ENT.png';
+import efficaciteIcon from '../../ressources/images/categories/EFF.png';
+import creatifIcon from '../../ressources/images/categories/CRE.png';
+import communicationIcon from '../../ressources/images/categories/COM.png';
+import systemeInfoIcon from '../../ressources/images/categories/SIN.png';
+import managementIcon from '../../ressources/images/categories/MAN.png';
 
 const NavigationBar: React.FC = () => {
   const [activeMenu, setActiveMenu] = useState<string | null>(null);

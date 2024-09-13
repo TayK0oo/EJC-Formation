@@ -3,6 +3,10 @@
   font: 1em/1.5 Hind, sans-serif;
 }
 
+.wrapper{
+  top: 80px;
+}
+
 .wrapper form,
 .wrapper .input,
 .wrapper .caret {
@@ -60,6 +64,8 @@
   outline: transparent;
 }
 
+
+
 .wrapper .input:focus + .caret,
 .wrapper .input:valid + .caret {
   animation: handleToCaret 1s linear;
@@ -80,6 +86,29 @@
   width: 0;
   height: 0;
 }
+
+.filterButton {
+  position: absolute;
+  right: 10px;
+  top: 20%;
+  transform: translateX(-1500%);
+  background: none;
+  border: none;
+  cursor: pointer;
+  opacity: 0;
+  transition:  transform 0.5s ease-in,opacity 0.6s ease-out,;
+}
+
+.input:focus ~ .filterButton,
+.input:valid ~ .filterButton {
+  opacity: 1;
+  transform: translateX(0%);
+  transition: opacity 0.8s ease-in, transform 0.5s ease-in;
+
+}
+
+
+
 
 
 

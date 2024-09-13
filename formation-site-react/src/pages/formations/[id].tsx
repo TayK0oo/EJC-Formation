@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { FormationController } from '../../controllers/FormationController';
 import styles from '../../styles/FormationDetail.module.css';
 import { Formation } from '../../models/Formation';
+import { importImage, imageExists } from '../../utils/imageImporter';
 
 interface FormationDetailPageProps {
   navigate: (path: string) => void;
@@ -9,12 +10,27 @@ interface FormationDetailPageProps {
 
 const FormationDetailPage: React.FC<FormationDetailPageProps> = ({ navigate }) => {
   const [formation, setFormation] = useState<Formation | null>(null);
+  const [activeAccordion, setActiveAccordion] = useState<string | null>(null);
+  const [imageUrl, setImageUrl] = useState<string>('');
 
   useEffect(() => {
     const fetchFormation = async () => {
       const id = window.location.pathname.split('/').pop() || '';
       const fetchedFormation = await FormationController.getFormationById(id);
       setFormation(fetchedFormation);
+
+      // Charger l'image de la formation en utilisant les 3 premiers caractères de l'ID
+      if (fetchedFormation && fetchedFormation.id) {
+        const imageName = `${id.substring(0, 3)}.png`;
+        const imageFolder = 'categories';
+        if (imageExists(imageName, imageFolder)) {
+          const src = await importImage(imageName, imageFolder);
+          setImageUrl(src);
+        } else {
+          // Utilisez une image par défaut ou gérez l'absence d'image
+          setImageUrl('/path/to/default/image.png');
+        }
+      }
     };
     fetchFormation();
   }, []);
@@ -23,12 +39,15 @@ const FormationDetailPage: React.FC<FormationDetailPageProps> = ({ navigate }) =
     return <div>Chargement...</div>;
   }
 
+  const toggleAccordion = (section: string) => {
+    setActiveAccordion(activeAccordion === section ? null : section);
+  };
+
   return (
     <div className={styles.formationDetail}>
       <h1>{formation.titre}</h1>
-      <p className={styles.category}>Catégorie: {formation.categorie}</p>
       
-      <section className={styles.mainInfo}>
+      <div className={styles.mainInfo}>
         <div className={styles.infoItem}>
           <h3>Durée</h3>
           <p>{formation.duree}</p>
@@ -41,36 +60,60 @@ const FormationDetailPage: React.FC<FormationDetailPageProps> = ({ navigate }) =
           <h3>Modalités</h3>
           <p>{formation.modalites}</p>
         </div>
-      </section>
+        <div className={styles.infoItem}>
+          <h3>Lieu</h3>
+          <p>{formation.lieu}</p>
+        </div>
+      </div>
 
-      <section className={styles.description}>
-        <h2>Description</h2>
-        <p>{formation.description}</p>
-      </section>
+      <div className={styles.centralBlock}>
+        <div className={styles.descriptionCompetences}>
+          <section className={styles.description}>
+            <h2>Description</h2>
+            <p>{formation.description}</p>
+          </section>
 
-      <section className={styles.competences}>
-        <h2>Compétences acquises</h2>
-        <ul>
-          {formation.competencesAcquises.map((comp, index) => (
-            <li key={index}>{comp}</li>
-          ))}
-        </ul>
-      </section>
+          <section className={styles.competences}>
+            <h2>Compétences acquises</h2>
+            <ul className={styles.competencesList}>
+              {formation.competencesAcquises.map((comp, index) => (
+                <li key={index}>{comp}</li>
+              ))}
+            </ul>
+          </section>
+        </div>
+        <img src={imageUrl} alt={formation.titre} className={styles.formationImage} />
+      </div>
 
-      <section className={styles.publicCible}>
-        <h2>Public cible</h2>
-        <ul>
-          {formation.publicCible.map((cible, index) => (
-            <li key={index}>{cible}</li>
-          ))}
-        </ul>
-      </section>
+      <div className={styles.accordionSection}>
+        <div className={styles.accordionItem}>
+          <div 
+            className={styles.accordionHeader} 
+            onClick={() => toggleAccordion('publicCible')}
+          >
+            Public cible
+          </div>
+          <div className={`${styles.accordionContent} ${activeAccordion === 'publicCible' ? styles.active : ''}`}>
+            <ul className={styles.publicCibleList}>
+              {formation.publicCible.map((cible, index) => (
+                <li key={index}>{cible}</li>
+              ))}
+            </ul>
+          </div>
+        </div>
 
-      <section className={styles.additionalInfo}>
-        <h2>Informations complémentaires</h2>
-        <p><strong>Prérequis:</strong> {formation.prerequis}</p>
-        <p><strong>Lieu:</strong> {formation.lieu}</p>
-      </section>
+        <div className={styles.accordionItem}>
+          <div 
+            className={styles.accordionHeader} 
+            onClick={() => toggleAccordion('prerequis')}
+          >
+            Prérequis
+          </div>
+          <div className={`${styles.accordionContent} ${activeAccordion === 'prerequis' ? styles.active : ''}`}>
+            <p>{formation.prerequis}</p>
+          </div>
+        </div>
+      </div>
 
       <button onClick={() => navigate('/')}>Retour à l'accueil</button>
     </div>
