@@ -20,10 +20,7 @@
     "typescript": "^4.9.5",
     "web-vitals": "^2.1.4"
   },
-  "homepage": "https://EJCfundation.github.io/EJC/formation-site-react",
   "scripts": {
-    "predeploy": "npm run build",
-    "deploy": "gh-pages -d build",
     "start-https": "HTTPS=true SSL_CRT_FILE=/opt/lampp/etc/ssl.crt/server.crt SSL_KEY_FILE=/opt/lampp/etc/ssl.key/server.key react-scripts start",
     "stop": "kill $(lsof -t -i:3000)",
     "start": "react-scripts start"
@@ -47,8 +44,7 @@
     ]
   },
   "devDependencies": {
-    "@types/crypto-js": "^4.2.2",
-    "gh-pages": "^6.1.1"
+    "@types/crypto-js": "^4.2.2"
   },
   "proxy": "https://localhost/EJC-Formation/formation-site-wordpress/"
 }
