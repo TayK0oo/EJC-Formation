@@ -1,0 +1,28 @@
+{
+  "files": {
+    "main.css": "/EJC-Formation/formation-site-react/static/css/main.3c40d80a.css",
+    "main.js": "/EJC-Formation/formation-site-react/static/js/main.a2a685ff.js",
+    "static/js/453.956f1526.chunk.js": "/EJC-Formation/formation-site-react/static/js/453.956f1526.chunk.js",
+    "static/media/Luciole-Regular.ttf": "/EJC-Formation/formation-site-react/static/media/Luciole-Regular.116b22be70c7c316fe6a.ttf",
+    "static/media/Luciole-Bold.ttf": "/EJC-Formation/formation-site-react/static/media/Luciole-Bold.9321ee71efd0deb71e04.ttf",
+    "static/media/TransformaSans_Trial-ExtraBold-BF660ca8e06ac5b.otf": "/EJC-Formation/formation-site-react/static/media/TransformaSans_Trial-ExtraBold-BF660ca8e06ac5b.d3f381b64e7485d5dba0.otf",
+    "static/media/TransformaScript_Trial-SemiBold-BF660ca8dfdec41.otf": "/EJC-Formation/formation-site-react/static/media/TransformaScript_Trial-SemiBold-BF660ca8dfdec41.0a88768e180151e37cf4.otf",
+    "static/media/COM.png": "/EJC-Formation/formation-site-react/static/media/COM.9af147f62c3a42d105db.png",
+    "static/media/GDP.png": "/EJC-Formation/formation-site-react/static/media/GDP.a2f1820b3c961e5b952f.png",
+    "static/media/MAN.png": "/EJC-Formation/formation-site-react/static/media/MAN.ed8df4801d63acfdb60b.png",
+    "static/media/EFF.png": "/EJC-Formation/formation-site-react/static/media/EFF.e6ee46e719cff8628397.png",
+    "static/media/SIN.png": "/EJC-Formation/formation-site-react/static/media/SIN.cf80b56e8807ce95a3db.png",
+    "static/media/Logo.png": "/EJC-Formation/formation-site-react/static/media/Logo.3079214fe3c11f7af8bc.png",
+    "static/media/CRE.png": "/EJC-Formation/formation-site-react/static/media/CRE.a753963628cb8c0d7f5e.png",
+    "static/media/email.png": "/EJC-Formation/formation-site-react/static/media/email.67bda94140af311d041f.png",
+    "static/media/ENT.png": "/EJC-Formation/formation-site-react/static/media/ENT.478c9c935f300ce6513a.png",
+    "index.html": "/EJC-Formation/formation-site-react/index.html",
+    "main.3c40d80a.css.map": "/EJC-Formation/formation-site-react/static/css/main.3c40d80a.css.map",
+    "main.a2a685ff.js.map": "/EJC-Formation/formation-site-react/static/js/main.a2a685ff.js.map",
+    "453.956f1526.chunk.js.map": "/EJC-Formation/formation-site-react/static/js/453.956f1526.chunk.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.3c40d80a.css",
+    "static/js/main.a2a685ff.js"
+  ]
+}

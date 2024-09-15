@@ -1,6 +1,6 @@
 import React, { useState, useRef, useEffect } from 'react';
 import styles from '../../styles/SearchBar.module.css';
-import FilterIcon from './FilterIcon';
+import FilterImg from '../../ressources/images/filter.png';
 import FilterWindow from './FilterWindow';
 
 interface SearchBarProps {
@@ -63,7 +63,7 @@ const SearchBar: React.FC<SearchBarProps> = ({ onSearch }) => {
         />
         <span className={styles.caret} />
         <button type="button" className={styles.filterButton} onClick={toggleFilter}>
-          <FilterIcon />
+          <img src={FilterImg} alt="Filter" />
         </button>
       </form>
       {isFilterOpen && <div ref={filterRef}><FilterWindow onFilterApply={onSearch} /></div>}

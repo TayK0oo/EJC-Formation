@@ -97,6 +97,12 @@
   cursor: pointer;
   opacity: 0;
   transition:  transform 0.5s ease-in,opacity 0.6s ease-out,;
+  z-index: 10000;
+}
+
+.filterButton img {
+  width: 30px;
+  height: 30px;
 }
 
 .input:focus ~ .filterButton,
