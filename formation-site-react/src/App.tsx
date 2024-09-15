@@ -1,3 +1,5 @@
+// src/App.tsx
+
 import React, { useState, useEffect } from 'react';
 import './styles/App.css';
 import './styles/variables.css';
@@ -5,12 +7,8 @@ import { Router } from './routes/Router';
 import { routes } from './routes/routes';
 
 function App() {
-  const basePath = process.env.NODE_ENV === 'production' 
-    ? '/EJC-Formation/formation-site-react'
-    : '';
-
   const [CurrentComponent, setCurrentComponent] = useState<React.ComponentType<any> | null>(null);
-  const [router] = useState(() => new Router(routes, setCurrentComponent, basePath));
+  const [router] = useState(() => new Router(routes, setCurrentComponent));
 
   useEffect(() => {
     router.init();

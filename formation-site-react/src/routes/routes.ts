@@ -10,7 +10,6 @@ export interface Route {
 }
 
 export const routes: Route[] = [
-  { path: '', component: HomePage, exact: true },
-  { path: 'formations/:id', component: FormationDetailPage },
-  { path: '/EJC-Formation/formation-site-react', component: HomePage , exact: true},
+  { path: '/', component: HomePage, exact: true },
+  { path: '/formations/:id', component: FormationDetailPage }
 ];
