@@ -15,14 +15,14 @@ jobs:
           node-version: '18'
       - name: Install dependencies
         run: |
-          cd formation-site-react
+          cd EJC-Formation/formation-site-react
           npm ci
       - name: Build
         run: |
-          cd formation-site-react
+          cd EJC-Formation/formation-site-react
           npm run build
       - name: Deploy
         uses: peaceiris/actions-gh-pages@v3
         with:
           github_token: ${{ secrets.GITHUB_TOKEN }}
-          publish_dir: ./formation-site-react/build
+          publish_dir: ./EJC-Formation/formation-site-react/build
