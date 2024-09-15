@@ -1,7 +1,7 @@
 {
   "files": {
     "main.css": "/EJC-Formation/formation-site-react/static/css/main.3c40d80a.css",
-    "main.js": "/EJC-Formation/formation-site-react/static/js/main.a2a685ff.js",
+    "main.js": "/EJC-Formation/formation-site-react/static/js/main.76337acf.js",
     "static/js/453.956f1526.chunk.js": "/EJC-Formation/formation-site-react/static/js/453.956f1526.chunk.js",
     "static/media/Luciole-Regular.ttf": "/EJC-Formation/formation-site-react/static/media/Luciole-Regular.116b22be70c7c316fe6a.ttf",
     "static/media/Luciole-Bold.ttf": "/EJC-Formation/formation-site-react/static/media/Luciole-Bold.9321ee71efd0deb71e04.ttf",
@@ -18,11 +18,11 @@
     "static/media/ENT.png": "/EJC-Formation/formation-site-react/static/media/ENT.478c9c935f300ce6513a.png",
     "index.html": "/EJC-Formation/formation-site-react/index.html",
     "main.3c40d80a.css.map": "/EJC-Formation/formation-site-react/static/css/main.3c40d80a.css.map",
-    "main.a2a685ff.js.map": "/EJC-Formation/formation-site-react/static/js/main.a2a685ff.js.map",
+    "main.76337acf.js.map": "/EJC-Formation/formation-site-react/static/js/main.76337acf.js.map",
     "453.956f1526.chunk.js.map": "/EJC-Formation/formation-site-react/static/js/453.956f1526.chunk.js.map"
   },
   "entrypoints": [
     "static/css/main.3c40d80a.css",
-    "static/js/main.a2a685ff.js"
+    "static/js/main.76337acf.js"
   ]
 }
