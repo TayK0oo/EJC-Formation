@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import styles from '../../styles/NavigationBar.module.css';
 import navStyles from '../../styles/NavSideBar.module.css';
 import gestionProjetIcon from '../../ressources/images/categories/GDP.png';
@@ -11,6 +11,19 @@ import managementIcon from '../../ressources/images/categories/MAN.png';
 
 const NavigationBar: React.FC = () => {
   const [activeMenu, setActiveMenu] = useState<string | null>(null);
+  const [isSticky, setIsSticky] = useState(false);
+
+  useEffect(() => {
+    const handleScroll = () => {
+      setIsSticky(window.scrollY > 50);
+    };
+
+    window.addEventListener('scroll', handleScroll);
+
+    return () => {
+      window.removeEventListener('scroll', handleScroll);
+    };
+  }, []);
 
   const menuItems = {
     Accueil: [],
@@ -49,7 +62,7 @@ const NavigationBar: React.FC = () => {
   };
 
   return (
-    <nav className={styles.navigationBar}>
+    <nav className={`${styles.navigationBar} ${isSticky ? styles.sticky : ''}`}>
       <ul className={styles.mainMenu}>
         {Object.entries(menuItems).map(([key, value]) => (
           <li 

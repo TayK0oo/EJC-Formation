@@ -30,23 +30,25 @@ const HomePage: React.FC<HomePageProps> = ({ navigate }) => {
     <div className={styles.homePage}>
       <Header />
       <NavigationBar />
-      <div className={styles.logoSearchContainer}>
-        <Logo />
-        <div className={styles.searchBarWrapper}>
-        <div className={styles.groupBubble}>
-            <div className={`${styles.searchBubble} ${styles.bubble1}`}></div>
-            <div className={`${styles.searchBubble} ${styles.bubble2}`}></div>
-            <div className={`${styles.searchBubble} ${styles.bubble3}`}></div>
-            <div className={`${styles.searchBubble} ${styles.bubble4}`}></div>
-            <div className={`${styles.searchBubble} ${styles.bubble5}`}></div>
-            <div className={`${styles.searchBubble} ${styles.bubble7}`}></div>
+      <div className={styles.contentWrapper}>
+        <div className={styles.logoSearchContainer}>
+          <Logo />
+          <div className={styles.searchBarWrapper}>
+            <div className={styles.groupBubble}>
+              <div className={`${styles.searchBubble} ${styles.bubble1}`}></div>
+              <div className={`${styles.searchBubble} ${styles.bubble2}`}></div>
+              <div className={`${styles.searchBubble} ${styles.bubble3}`}></div>
+              <div className={`${styles.searchBubble} ${styles.bubble4}`}></div>
+              <div className={`${styles.searchBubble} ${styles.bubble5}`}></div>
+              <div className={`${styles.searchBubble} ${styles.bubble7}`}></div>
+            </div>
+            <SearchBar onSearch={applyFilters} />
           </div>
-          <SearchBar onSearch={applyFilters} />
         </div>
+        <main className={styles.mainContent}>
+          <FormationsOverView formations={formations} navigate={navigate} onFilterChange={applyFilters} />
+        </main>
       </div>
-      <main className={styles.mainContent}>
-        <FormationsOverView formations={formations} navigate={navigate} onFilterChange={applyFilters} />
-      </main>
     </div>
   );
 };

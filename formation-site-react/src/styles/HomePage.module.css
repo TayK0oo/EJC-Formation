@@ -1,21 +1,23 @@
-/* Style de base pour la page d'accueil */
 .homePage {
   min-height: 100vh;
   display: flex;
   flex-direction: column;
-  overflow: hidden;
+  overflow-x: hidden;
+  position: relative;
 }
 
+.contentWrapper {
+  padding-top: 60px; /* Adjust this value based on the height of your navigation bar */
+}
 
-
-/* Style pour le contenu principal */
 .mainContent {
+  position: relative;
   flex-grow: 1;
   padding: 20px;
 }
 
-/* Conteneur pour le logo et la barre de recherche */
 .logoSearchContainer {
+  position: relative;
   display: grid;
   grid-template-columns: 1fr 3fr;
   margin: 2% 2% 2% 15%;
@@ -25,31 +27,26 @@
   margin-bottom: 7%;
 }
 
-/* Wrapper pour la barre de recherche */
 .searchBarWrapper {
   position: relative;
-  padding-top: 5%; /* Ajout d'un padding en haut pour laisser de l'espace aux bulles */
-
+  padding-top: 5%;
 }
 
-
-/* Style de la bulle derrière la barre de recherche */
 .searchBubble {
   position: absolute;
-  top: -70px; /* Augmenté pour plus d'espace */
-  left: -70px; /* Augmenté pour plus d'espace */
-  right: -70px; /* Augmenté pour plus d'espace */
-  bottom: -70px; /* Augmenté pour plus d'espace */
-  background-color:var(--color-green);
-  border-radius: 80% 20% 90% 10% / 70% 80% 20% 30%; /* Forme plus irrégulière */
+  top: -70px;
+  left: -70px;
+  right: -70px;
+  bottom: -70px;
+  background-color: var(--color-green);
+  border-radius: 80% 20% 90% 10% / 70% 80% 20% 30%;
   z-index: -4;
   margin-left: 5%;
   margin-right: 5%;
   animation: bubbleMove 10s infinite alternate;
-  height:300%;
+  height: 300%;
 }
 
-/* Styles communs pour les pseudo-éléments de la bulle */
 .searchBubble::before,
 .searchBubble::after {
   content: '';
@@ -58,23 +55,18 @@
   border-radius: 50%;
 }
 
-
-.groupBubble{
-  display:flex;
+.groupBubble {
+  display: flex;
 }
 
-
-/* Styles spécifiques pour chaque bulle */
-.bubble1 { width: 80%; height: 200%; top: -30%; left: 20%; animation-delay: 0s; z-index: -3; z-index: -1;}
+.bubble1 { width: 80%; height: 200%; top: -30%; left: 20%; animation-delay: 0s; z-index: -1; }
 .bubble2 { width: 20%; height: 50%; top: -50%; left: 60%; animation-delay: -5s; background-color: var(--color-green); z-index: -1; }
-.bubble3 { width: 120%; height: 180%; bottom: -40%; left: 40%; animation-delay: -10s; background-color: var(--color-orange);}
-.bubble4 { width: 100%; height: 260%; top: -10%; left: -30%; animation-delay: -15s; background-color: var(--color-orange);}
+.bubble3 { width: 120%; height: 180%; bottom: -40%; left: 40%; animation-delay: -10s; background-color: var(--color-orange); }
+.bubble4 { width: 100%; height: 260%; top: -10%; left: -30%; animation-delay: -15s; background-color: var(--color-orange); }
 .bubble5 { width: 50%; height: 150%; top: 10%; left: -5%; animation-delay: -20s; background-color: var(--color-green); z-index: -2; }
-.bubble6 { width: 50%; height: 150%; top: 150%; left: -50%; animation-delay: -25s; background-color: var(--color-orange);z-index: -5; }
-.bubble7 { width: 50%; height: 150%; top: -50%; left: 10%; animation-delay: -30s; background-color: var(--color-orange);}
+.bubble6 { width: 50%; height: 150%; top: 150%; left: -50%; animation-delay: -25s; background-color: var(--color-orange); z-index: -5; }
+.bubble7 { width: 50%; height: 150%; top: -50%; left: 10%; animation-delay: -30s; background-color: var(--color-orange); }
 
-
-/* Animation pour faire bouger la forme de la bulle de manière plus prononcée */
 @keyframes bubbleMove {
   0% {
     border-radius: 80% 40% 90% 40% / 30% 80% 40% 30%;
@@ -87,9 +79,7 @@
   }
 }
 
-/* Styles pour les écrans mobiles */
 @media (max-width: 768px) {
-  /* Ajustement du conteneur logo/recherche pour les petits écrans */
   .logoSearchContainer {
     display: grid;
     grid-template-columns: 1fr;
@@ -98,22 +88,17 @@
     justify-content: center;
   }
 
-  /* Ajustement de la taille de la bulle pour les petits écrans */
   .searchBubble {
-    top: -40px; /* Ajusté pour plus d'espace */
-    left: -40px; /* Ajusté pour plus d'espace */
-    right: -40px; /* Ajusté pour plus d'espace */
-    bottom: -40px; /* Ajusté pour plus d'espace */
+    top: -40px;
+    left: -40px;
+    right: -40px;
+    bottom: -40px;
   }
 
   .bubble1 { width: 80%; top: -90%; left: 20%; animation-delay: 0s; }
-
-
- 
 }
 
 @media (max-width: 380px) {
-  /* Ajustement du conteneur logo/recherche pour les petits écrans */
   .logoSearchContainer {
     margin: 2% 2% 50% 2%;
   }

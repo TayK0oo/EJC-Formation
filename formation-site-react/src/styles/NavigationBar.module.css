@@ -1,10 +1,13 @@
 .navigationBar {
-  position: sticky;
-  top: 0;
   background-color: var(--color-orange);
   z-index: 1000;
   padding: 20px;
   transition: all 0.5s ease;
+  width: 100%;
+}
+
+.sticky {
+  position: fixed;
 }
 
 .mainMenu {
@@ -45,17 +48,12 @@
   box-shadow: 0 5px 15px rgba(0,0,0,0.1);
   opacity: 0;
   visibility: hidden;
-  width: 60vw; /* Utilise presque toute la largeur de l'écran */
-  max-width: 1200px; /* Limite la largeur maximale */
+  width: 60vw;
+  max-width: 1200px;
   max-height: 0;
   overflow: auto;
-
   transition: all 0.3s ease-out, max-height 0.5s ease-out;
   transform: translateX(-50%) scaleY(0);
-  opacity: 0;
-  visibility: hidden;
-  max-height: 0;
-
 }
 
 .menuItem.active {
@@ -66,13 +64,10 @@
   opacity: 1;
   visibility: visible;
   transform: translateX(-50%) scaleY(1);
-  max-height: 90vh; /* Limite la hauteur maximale */
-
-
+  max-height: 90vh;
 }
 
 .submenuContent {
-
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
@@ -80,13 +75,9 @@
   gap: 10%;
 }
 
-
-
-
 .formationsContainer {
-  
   display: flex;
-  flex-direction: row; /* Assurez-vous que c'est bien 'row' */
+  flex-direction: row;
   justify-content: center;
   gap: 20px;
 }
@@ -96,7 +87,7 @@
   flex-direction: column;
   justify-content: center;
   gap: 5px;
-  flex: 0 0 auto; /* Empêche les colonnes de s'étirer */
+  flex: 0 0 auto;
 }
 
 .formation {
@@ -105,12 +96,11 @@
   text-overflow: ellipsis;
 }
 
-/* Ajustez ces styles selon vos besoins */
 .category {
-  flex: 0 0 calc(20.333% - 20px); /* Ajusté pour avoir 3 catégories par ligne */
+  flex: 0 0 calc(20.333% - 20px);
   margin: 10px;
   display: flex;
-  flex-direction: row; /* Changé en colonne pour un meilleur agencement */
+  flex-direction: row;
   align-items: center;
   justify-content: flex-start;
   gap: 10px;
@@ -118,10 +108,10 @@
 
 .categoryHeader {
   display: flex;
-  flex-direction: column; /* Changé en ligne pour aligner l'icône et le titre */
+  flex-direction: column;
   align-items: center;
   margin-bottom: 10px;
-  width: 100%; /* Assure que l'en-tête prend toute la largeur */
+  width: 100%;
 }
 
 .icon {
@@ -136,8 +126,6 @@
   font-family: var(--font-family-transforma);
 }
 
-
-
 @media (max-width: 1024px) {
   .category {
     flex: 0 0 calc(30% - 20px);
@@ -148,17 +136,16 @@
   .mainMenu {
     flex-direction: column;
     align-items: center;
-    height: auto; /* Supprimez la hauteur fixe */
+    height: auto;
   }
 
   .menuItem {
     margin: 5px 0;
-    width: 100%; /* Assurez-vous que l'élément prend toute la largeur */
+    width: 100%;
   }
 
   .menuItem.active {
     margin: 5px 0;
-    
   }
 
   .submenu {
@@ -168,23 +155,20 @@
     opacity: 1;
     visibility: visible;
     padding: 0;
-    max-height: 0; /* Commencez avec une hauteur de 0 */
-    overflow: auto; /* Cachez le contenu dépassant */
+    max-height: 0;
+    overflow: auto;
     -webkit-overflow-scrolling: touch;
     background-color: var(--color-orange);
     transform: translateY(-100%) scaleY(0);
     transition: transform 0.3s ease-out;
     z-index: 1001;
-
   }
 
   .menuItem.active .submenu {
-    max-height: 1000px; /* Une valeur suffisamment grande pour contenir tout le contenu */
+    max-height: 1000px;
     padding: 20px 0;
-    transform : translateX(0) scaleY(1);
+    transform: translateX(0) scaleY(1);
     transition: transform 0.3s ease-out;
-
-
   }
 
   .category {
