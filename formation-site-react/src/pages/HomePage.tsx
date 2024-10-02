@@ -6,7 +6,7 @@ import Logo from '../components/common/Logo';
 import FormationsOverView from '../components/home/FormationsOverView';
 import styles from '../styles/HomePage.module.css';
 import { HomeController } from '../controllers/HomeController';
-import { Formation } from '../models/Formation';
+import { Formation } from '../models/classFormation';
 import { FilterService } from '../services/FilterService';
 
 interface HomePageProps {
@@ -29,7 +29,7 @@ const HomePage: React.FC<HomePageProps> = ({ navigate }) => {
   return (
     <div className={styles.homePage}>
       <Header />
-      <NavigationBar />
+      <NavigationBar navigate= {navigate}/>
       <div className={styles.contentWrapper}>
         <div className={styles.logoSearchContainer}>
           <Logo />

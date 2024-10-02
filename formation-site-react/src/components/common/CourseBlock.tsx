@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import styles from '../../styles/CourseBlock.module.css';
-import { Formation } from '../../models/Formation';
+import { Formation } from '../../models/classFormation';
 import { importImage, imageExists } from '../../utils/imageImporter';
 
 interface CourseBlockProps {

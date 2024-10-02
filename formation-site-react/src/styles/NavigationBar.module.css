@@ -25,6 +25,13 @@
 }
 
 .menuItem p {
+  color: var(--color-black);
+  font-family: var(--font-family-luciole-bold);
+  text-decoration: none;
+  font-weight: bold;
+}
+
+.menuItem h2 {
   color: var(--color-white);
   font-family: var(--font-family-luciole-bold);
   text-decoration: none;
@@ -32,7 +39,7 @@
 }
 
 .menuItem:hover p {
-  text-decoration: underline;
+  cursor: pointer;
 }
 
 .submenu {
@@ -94,7 +101,14 @@
   white-space: nowrap;
   overflow: hidden;
   text-overflow: ellipsis;
+  transition: transform 0.3s ease;
 }
+
+.formation:hover {
+  transform: scale(1.1);
+}
+
+
 
 .category {
   flex: 0 0 calc(20.333% - 20px);

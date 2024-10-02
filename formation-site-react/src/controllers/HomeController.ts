@@ -1,6 +1,6 @@
 // controllers/HomeController.ts
 import { FormationDAOImpl } from '../dao/FormationDAOImpl';
-import { Formation } from '../models/Formation';
+import { Formation } from '../models/classFormation';
 import { Filter } from '../models/Filter';
 
 export class HomeController {

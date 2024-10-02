@@ -1,7 +1,7 @@
 import React from 'react';
 import styles from '../../styles/Formations.module.css';
 import CourseBlock from '../common/CourseBlock';
-import { Formation } from '../../models/Formation';
+import { Formation } from '../../models/classFormation';
 
 interface FormationsOverViewProps {
   formations: Formation[];

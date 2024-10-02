@@ -1,5 +1,5 @@
 import { IFormationDAO } from './IFormationDAO';
-import { Formation } from '../models/Formation';
+import { Formation } from '../models/classFormation';
 import formationsData from '../ressources/formation/formations.json';
 import { Filter } from '../models/Filter';
 
@@ -15,6 +15,7 @@ export class FormationDAOImpl implements IFormationDAO {
 
   async getAllFormations(): Promise<Formation[]> {
     return Promise.resolve(this.formations);
+
   }
 
   async getFormationById(id: string): Promise<Formation | null> {

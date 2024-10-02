@@ -1,8 +1,9 @@
 import React, { useState, useEffect } from 'react';
 import { FormationController } from '../../controllers/FormationController';
 import styles from '../../styles/FormationDetail.module.css';
-import { Formation } from '../../models/Formation';
+import { Formation } from '../../models/classFormation';
 import { importImage, imageExists } from '../../utils/imageImporter';
+
 
 interface FormationDetailPageProps {
   navigate: (path: string) => void;
@@ -19,7 +20,7 @@ const FormationDetailPage: React.FC<FormationDetailPageProps> = ({ navigate }) =
       const fetchedFormation = await FormationController.getFormationById(id);
       setFormation(fetchedFormation);
 
-      // Charger l'image de la formation en utilisant les 3 premiers caractères de l'ID
+      //Load image with the first 3 characters of the id
       if (fetchedFormation && fetchedFormation.id) {
         const imageName = `${id.substring(0, 3)}.png`;
         const imageFolder = 'categories';
@@ -27,7 +28,6 @@ const FormationDetailPage: React.FC<FormationDetailPageProps> = ({ navigate }) =
           const src = await importImage(imageName, imageFolder);
           setImageUrl(src);
         } else {
-          // Utilisez une image par défaut ou gérez l'absence d'image
           setImageUrl('/path/to/default/image.png');
         }
       }
@@ -116,6 +116,7 @@ const FormationDetailPage: React.FC<FormationDetailPageProps> = ({ navigate }) =
       </div>
 
       <button onClick={() => navigate('/')}>Retour à l'accueil</button>
+
     </div>
   );
 };

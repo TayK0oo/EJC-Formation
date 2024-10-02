@@ -1,5 +1,5 @@
 // services/FormationService.ts
-import { Formation } from '../models/Formation';
+import { Formation } from '../models/classFormation';
 
 export class FormationService {
   private static FORMATION_KEY = 'current_formation';

@@ -1,8 +1,0 @@
-{
-  "dependencies": {
-    "styled-components": "^6.1.13"
-  },
-  "devDependencies": {
-    "@types/webpack": "^5.28.5"
-  }
-}

@@ -1,5 +1,4 @@
 import axios, { AxiosRequestConfig } from 'axios';
-import CryptoJS from 'crypto-js';
 
 class ApiProduct {
   private api: any;

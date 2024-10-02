@@ -3,8 +3,7 @@ import { ICategoryDAO } from './ICategoryDAO';
 
 export class CategoryDAO implements ICategoryDAO {
   async getCategories(): Promise<string[]> {
-    // Dans une application réelle, ceci ferait un appel à une base de données ou une API
-    // Pour l'instant, nous retournons une liste mock de catégories
+    // Ici, on simule une requête asynchrone à une base de données
     return [
       "GESTION DE PROJETS",
       "ENTREPRENEURIAT",
