@@ -17,3 +17,5 @@ export class FilterService {
     localStorage.removeItem(this.FILTER_KEY);
   }
 }
+
+//coucou
