@@ -1,129 +1,146 @@
 import { IFormationDAO } from './IFormationDAO';
 import { Formation } from '../models/classFormation';
 import api from '../config/woocommerce';
-
-import dataFormation from '../ressources/formation/formations.json';
-
-import adminApi from '../config/woocommerceAdmin'; // Assurez-vous que ce chemin est correct
-
-//donnée de test avec json
+import adminApi from '../config/woocommerceAdmin'; // Pour la gestion Admin
+import { Filter } from '../models/Filter'; // Assurez-vous d'avoir une interface Filter
 
 export class WooCommerceProductDAO implements IFormationDAO {
-    private formations: Formation[];
+  private formations: Formation[];
 
-    private categories = [
-      "ENTREPRENEURIAT",
-      "COMMUNICATION",
-      "EFFICACITE PROFESSIONNELLE / MOTIVATION",
-      "MANAGEMENT"
-    ];
+  constructor() {
+    this.formations = [];
+  }
 
-    constructor() {
-        this.formations = [];
-    }
-
+  // Récupérer toutes les formations
   async getAllFormations(): Promise<Formation[]> {
     try {
-        const response = await api.get("products");
-        const formations = response.data as Formation[];
+      // Effectuer la requête vers l'API WooCommerce pour récupérer tous les produits
+      const response = await api.get('products', {
+        params: {
+          per_page: 100, // Limitez à 100 par page (modifiez selon vos besoins)
+        }
+      });
 
-        await this.createCategories();
-        await this.createFormations();
+      // Transformer la réponse en une liste de formations
+      const products = response.data;
 
-        return Promise.resolve(formations);
-      } catch (error) {
-        console.error("Erreur lors de la récupération des produits:", error);
-        throw error;
-      }
+      console.log(products);
+
+
+      this.formations = products.map((product: any) => ({
+        idR: product.id,
+
+        id: product.meta_data.find((meta: any) => meta.key === '_formation_id')?.value || '',
+        titre: product.name,
+        categorie: product.categories.length > 0 ? product.categories[0].name : 'Non catégorisé',
+        duree: product.meta_data.find((meta: any) => meta.key === '_formation_duree')?.value || '',
+        tarif: product.price,
+        description: product.description,
+        competencesAcquises: product.meta_data.find((meta: any) => meta.key === '_formation_competences')?.value.split('\n') || [],
+        publicCible: product.meta_data.find((meta: any) => meta.key === '_formation_public_cible')?.value.split('\n') || [],
+        modalites: product.meta_data.find((meta: any) => meta.key === '_formation_modalites')?.value || '',
+        prerequis: product.meta_data.find((meta: any) => meta.key === '_formation_prerequis')?.value || '',
+        lieu: product.meta_data.find((meta: any) => meta.key === '_formation_lieu')?.value || '',
+        createurId: product.meta_data.find((meta: any) => meta.key === '_createur_id')?.value || '',
+      }));
+
+      return this.formations;
+    } catch (error) {
+      console.error("Erreur lors de la récupération des formations :", error);
+      throw new Error("Erreur lors de la récupération des formations");
+    }
   }
+
+
 
   async getFormationById(id: string): Promise<Formation | null> {
-    const formation = this.formations.find(f => f.id === id);
-    return Promise.resolve(formation || null);
-  }
-
-
-
-
-
-
-
-
-
-
-async createCategories() {
-  for (const categoryName of this.categories) {
     try {
-      const response = await adminApi.post('products/categories', {
-        name: categoryName
-      });
-      console.log(`Catégorie créée : ${categoryName}`);
-    } catch (error) {
-      console.error(`Erreur lors de la création de la catégorie ${categoryName}:`, error);
-    }
-  }
-}
+      // Récupérer un produit spécifique par son ID
+      const response = await api.get(`products/${id}`);
 
-async createFormations() {
-  this.formations = dataFormation.formations;
+      const product = response.data;
 
+      if (!product) {
+        return null;
+      }
 
-
-  for (const formation of this.formations) {
-    try {
-      const categoryResponse = await adminApi.get('products/categories', {
-        search: formation.categorie
-      });
       
-      const categoryId = categoryResponse.data[0]?.id;
 
-      const productData = {
-        name: formation.titre,
-        type: 'simple',
-        regular_price: formation.tarif.replace('€', ''),
-        description: formation.description,
-        short_description: `Durée: ${formation.duree}, Public cible: ${formation.publicCible.join(', ')}`,
-        categories: categoryId ? [{ id: categoryId }] : [],
-        attributes: [
-          {
-            name: 'ID',
-            visible: true,
-            options: [formation.id]
-          },
-          {
-            name: 'Compétences Acquises',
-            visible: true,
-            options: formation.competencesAcquises
-          },
-          {
-            name: 'Modalités',
-            visible: true,
-            options: [formation.modalites]
-          },
-          {
-            name: 'Prérequis',
-            visible: true,
-            options: [formation.prerequis]
-          },
-          {
-            name: 'Lieu',
-            visible: true,
-            options: [formation.lieu]
-          },
-          {
-            name: 'Créateur ID',
-            visible: true,
-            options: [formation.createurId]
-          }
-        ]
+      // Transformer le produit en une instance de Formation
+      const formation: Formation = {
+        idR: product.id,
+        id: product.meta_data.find((meta: any) => meta.key === '_formation_id')?.value || '',
+        titre: product.name,
+        categorie: product.categories.length > 0 ? product.categories[0].name : 'Non catégorisé',
+        duree: product.meta_data.find((meta: any) => meta.key === '_formation_duree')?.value || '',
+        tarif: product.price,
+        description: product.description,
+        competencesAcquises: product.meta_data.find((meta: any) => meta.key === '_formation_competences')?.value.split('\n') || [],
+        publicCible: product.meta_data.find((meta: any) => meta.key === '_formation_public_cible')?.value.split('\n') || [],
+        modalites: product.meta_data.find((meta: any) => meta.key === '_formation_modalites')?.value || '',
+        prerequis: product.meta_data.find((meta: any) => meta.key === '_formation_prerequis')?.value || '',
+        lieu: product.meta_data.find((meta: any) => meta.key === '_formation_lieu')?.value || '',
+        createurId: product.meta_data.find((meta: any) => meta.key === '_createur_id')?.value || '',
       };
 
-      const response = await adminApi.post('products', productData);
-      console.log(`Formation créée : ${formation.titre}`);
-      console.log(response.data);
+      return formation;
     } catch (error) {
-      console.error(`Erreur lors de la création de la formation ${formation.titre}:`, error);
+      console.error("Erreur lors de la récupération de la formation :", error);
+      return null;
+    }
+  }
+
+  async getFormations(filters?: Filter | null): Promise<Formation[]> {
+    try {
+      const params: any = {
+        per_page: 100, // Limite par page
+      };
+
+      // Si des filtres sont appliqués
+      if (filters) {
+        if (filters.category) {
+          params.category = filters.category; // Rechercher par catégorie
+        }
+        if (filters.duration) {
+          params.duree = filters.duration; // Rechercher par durée
+        }
+        if (filters.price) {
+          params.price = filters.price; // Rechercher par prix
+        }
+        if (filters.modality) {
+          params.modalites = filters.modality; // Rechercher par modalité
+        }
+      }
+
+      // Récupérer les produits filtrés
+      const response = await api.get('products', { params });
+
+      const products = response.data;
+
+      // Transformer les produits en une liste de formations
+      this.formations = products.map((product: any) => ({
+        idR: product.id,
+
+        id: product.meta_data.find((meta: any) => meta.key === '_formation_id')?.value || '',
+        titre: product.name,
+        categorie: product.categories.length > 0 ? product.categories[0].name : 'Non catégorisé',
+        duree: product.meta_data.find((meta: any) => meta.key === '_formation_duree')?.value || '',
+        tarif: product.price,
+        description: product.description,
+        competencesAcquises: product.meta_data.find((meta: any) => meta.key === '_formation_competences')?.value.split('\n') || [],
+        publicCible: product.meta_data.find((meta: any) => meta.key === '_formation_public_cible')?.value.split('\n') || [],
+        modalites: product.meta_data.find((meta: any) => meta.key === '_formation_modalites')?.value || '',
+        prerequis: product.meta_data.find((meta: any) => meta.key === '_formation_prerequis')?.value || '',
+        lieu: product.meta_data.find((meta: any) => meta.key === '_formation_lieu')?.value || '',
+        createurId: product.meta_data.find((meta: any) => meta.key === '_createur_id')?.value || '',
+      }));
+
+      return this.formations;
+    } catch (error) {
+      console.error("Erreur lors de la récupération des formations avec filtres :", error);
+      throw new Error("Erreur lors de la récupération des formations avec filtres");
     }
   }
 }
-}
+
+

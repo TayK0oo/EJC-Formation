@@ -21,7 +21,7 @@ const FormationsOverView: React.FC<FormationsOverViewProps> = ({ formations, nav
           <CourseBlock
             key={formation.id}
             formation={formation}
-            onClickMore={() => navigate(`/formations/${formation.id}`)}
+            onClickMore={() => navigate(`/formations/${formation.id}${formation.idR}`)}
           />
         ))}
       </div>

@@ -609,3 +609,136 @@ function add_new_term_callback() {
 	wp_die();
 }
 add_action('wp_ajax_add_new_term', 'add_new_term_callback');
+
+
+// Fonction pour générer le prochain ID de formation disponible en fonction de la catégorie
+function get_next_formation_id($category_slug) {
+    // Obtenir tous les produits de la catégorie donnée
+    $args = array(
+        'post_type' => 'product',
+        'posts_per_page' => -1,
+        'tax_query' => array(
+            array(
+                'taxonomy' => 'product_cat',
+                'field' => 'slug',
+                'terms' => $category_slug
+            )
+        ),
+        'meta_query' => array(
+            array(
+                'key' => '_formation_id',
+                'compare' => 'EXISTS',
+            )
+        )
+    );
+    
+    $products = get_posts($args);
+    $existing_ids = array();
+    
+    // Parcourir les produits et extraire les IDs de formation
+    foreach ($products as $product) {
+        $formation_id = get_post_meta($product->ID, '_formation_id', true);
+        if (!empty($formation_id)) {
+            $existing_ids[] = $formation_id;
+        }
+    }
+    
+    // Générer le préfixe basé sur les 3 premières lettres du slug de la catégorie
+    $prefix = strtoupper(substr($category_slug, 0, 3));
+    
+    // Filtrer les IDs qui correspondent à ce préfixe et récupérer les numéros
+    $max_number = 0;
+    foreach ($existing_ids as $id) {
+        if (strpos($id, $prefix) === 0) {
+            $number = (int) filter_var(substr($id, 3), FILTER_SANITIZE_NUMBER_INT);
+            if ($number > $max_number) {
+                $max_number = $number;
+            }
+        }
+    }
+    
+    // Incrémenter le numéro pour le prochain ID
+    $next_number = $max_number + 1;
+    $next_formation_id = $prefix . str_pad($next_number, 3, '0', STR_PAD_LEFT);
+    
+    return $next_formation_id;
+}
+
+
+function auto_fill_formation_id_script() {
+    global $post_type;
+    if ($post_type != 'product') return;
+    ?>
+    <script type="text/javascript">
+    jQuery(document).ready(function($) {
+    // Quand la catégorie change
+    $('#product_cat').on('change', function() {
+        var categoryId = $(this).val();
+        console.log('Catégorie sélectionnée:', categoryId); // Log de la catégorie sélectionnée
+        
+        if (!categoryId) {
+            console.log('Aucune catégorie sélectionnée.');
+            return;
+        }
+
+        // Appel AJAX pour récupérer l'ID disponible
+        $.ajax({
+            url: ajaxurl,
+            type: 'POST',
+            data: {
+                action: 'get_next_formation_id',
+                category_id: categoryId
+            },
+            success: function(response) {
+                try {
+                    // Si la réponse est en chaîne de caractères, la convertir en objet JSON
+                    var data = typeof response === "string" ? JSON.parse(response) : response;
+                    
+                    console.log('Réponse AJAX:', data); // Log de la réponse AJAX
+                    if (data.success) {
+                        $('#_formation_id').val(data.formation_id); // Remplir le champ ID
+                        console.log('ID de formation généré:', data.formation_id); // Log de l'ID généré
+                    } else {
+                        console.error('Erreur AJAX: ' + data.message);
+                    }
+                } catch (error) {
+                    console.error('Erreur lors du traitement de la réponse AJAX:', error);
+                }
+            },
+            error: function(jqXHR, textStatus, errorThrown) {
+                console.error('Erreur lors de la requête AJAX:', textStatus, errorThrown);
+            }
+        });
+    });
+});
+
+    </script>
+    <?php
+}
+add_action('admin_footer', 'auto_fill_formation_id_script');
+
+
+
+// Callback AJAX pour obtenir le prochain ID de formation disponible
+function get_next_formation_id_callback() {
+    if (!isset($_POST['category_id'])) {
+        echo json_encode(array('success' => false, 'message' => 'Catégorie non spécifiée.'));
+        wp_die();
+    }
+    
+    // Obtenir le slug de la catégorie depuis son ID
+    $category_id = sanitize_text_field($_POST['category_id']);
+    $category = get_term($category_id, 'product_cat');
+    
+    if (!$category || is_wp_error($category)) {
+        echo json_encode(array('success' => false, 'message' => 'Catégorie non valide.'));
+        wp_die();
+    }
+    
+    // Générer le prochain ID de formation disponible
+    $next_formation_id = get_next_formation_id($category->slug);
+    
+    echo json_encode(array('success' => true, 'formation_id' => $next_formation_id));
+    wp_die();
+}
+add_action('wp_ajax_get_next_formation_id', 'get_next_formation_id_callback');
