@@ -51,6 +51,7 @@
   "devDependencies": {
     "@types/woocommerce__woocommerce-rest-api": "^1.0.5",
     "buffer": "^6.0.3",
+    "gh-pages": "^6.1.1",
     "process": "^0.11.10",
     "stream": "^0.0.3",
     "stream-browserify": "^3.0.0"
