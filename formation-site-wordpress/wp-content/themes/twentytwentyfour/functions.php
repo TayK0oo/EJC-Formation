@@ -612,6 +612,7 @@ function add_new_term_callback() {
 }
 add_action('wp_ajax_add_new_term', 'add_new_term_callback');
 <<<<<<< HEAD
+<<<<<<< HEAD
 
 
 // Fonction pour générer le prochain ID de formation disponible en fonction de la catégorie
@@ -751,3 +752,5 @@ add_action('wp_ajax_get_next_formation_id', 'get_next_formation_id_callback');
 >>>>>>> parent of ac196084 (gestion des produits)
 =======
 >>>>>>> parent of 72e35273 (Intégration api woocommerce, implementation ajout de formation, ajout de category, ajout de formateur)
+=======
+>>>>>>> parent of ac196084 (gestion des produits)
