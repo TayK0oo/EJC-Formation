@@ -49,8 +49,6 @@ const HomePage: React.FC<HomePageProps> = ({ navigate }) => {
           <FormationsOverView formations={formations} navigate={navigate} onFilterChange={applyFilters} />
         </main>
       </div>
-
-      <button onClick={() => navigate('/test')}>Go to Test Page</button>
     </div>
   );
 };

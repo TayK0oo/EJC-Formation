@@ -4,13 +4,9 @@
 	"title": "Checkout",
 	"description": "Display a checkout form so your customers can submit orders.",
 	"category": "woocommerce",
-	"keywords": [
-		"WooCommerce"
-	],
+	"keywords": [ "WooCommerce" ],
 	"supports": {
-		"align": [
-			"wide"
-		],
+		"align": [ "wide" ],
 		"html": false,
 		"multiple": false
 	},
@@ -60,6 +56,6 @@
 		}
 	},
 	"textdomain": "woocommerce",
-	"apiVersion": 3,
+	"apiVersion": 2,
 	"$schema": "https://schemas.wp.org/trunk/block.json"
 }

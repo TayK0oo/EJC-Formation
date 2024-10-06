@@ -136,15 +136,21 @@ function wc_get_account_menu_items() {
 }
 
 /**
- * Find current item in account menu.
+ * Get account menu item classes.
  *
- * @since 9.3.0
+ * @since 2.6.0
  * @param string $endpoint Endpoint.
- * @return bool
+ * @return string
  */
-function wc_is_current_account_menu_item( $endpoint ) {
+function wc_get_account_menu_item_classes( $endpoint ) {
 	global $wp;
 
+	$classes = array(
+		'woocommerce-MyAccount-navigation-link',
+		'woocommerce-MyAccount-navigation-link--' . $endpoint,
+	);
+
+	// Set current item class.
 	$current = isset( $wp->query_vars[ $endpoint ] );
 	if ( 'dashboard' === $endpoint && ( isset( $wp->query_vars['page'] ) || empty( $wp->query_vars ) ) ) {
 		$current = true; // Dashboard is not an endpoint, so needs a custom check.
@@ -154,23 +160,7 @@ function wc_is_current_account_menu_item( $endpoint ) {
 		$current = true;
 	}
 
-	return $current;
-}
-
-/**
- * Get account menu item classes.
- *
- * @since 2.6.0
- * @param string $endpoint Endpoint.
- * @return string
- */
-function wc_get_account_menu_item_classes( $endpoint ) {
-	$classes = array(
-		'woocommerce-MyAccount-navigation-link',
-		'woocommerce-MyAccount-navigation-link--' . $endpoint,
-	);
-
-	if ( wc_is_current_account_menu_item( $endpoint ) ) {
+	if ( $current ) {
 		$classes[] = 'is-active';
 	}
 
@@ -191,13 +181,11 @@ function wc_get_account_endpoint_url( $endpoint ) {
 		return wc_get_page_permalink( 'myaccount' );
 	}
 
-	$url = wc_get_endpoint_url( $endpoint, '', wc_get_page_permalink( 'myaccount' ) );
-
 	if ( 'customer-logout' === $endpoint ) {
-		return wp_nonce_url( $url, 'customer-logout' );
+		return wc_logout_url();
 	}
 
-	return $url;
+	return wc_get_endpoint_url( $endpoint, '', wc_get_page_permalink( 'myaccount' ) );
 }
 
 /**

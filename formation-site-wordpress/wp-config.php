@@ -89,7 +89,7 @@ define('FTP_PASS', 'UfLv45G^EBy^gn5hoq#zY2');
 define('FTP_SSL', false); // Changez en 'true' pour utiliser FTPS
 define('FS_METHOD', 'direct');
 define('WP_DEBUG_LOG', true);
-define('WP_DEBUG_DISPLAY', true);
+define('WP_DEBUG_DISPLAY', false);
 define( 'ECOMMERCENG_WOOCOMMERCE_QUERY_STRING_AUTH', true );
 define('FORCE_SSL_ADMIN', false);
 define('WP_HOME','http://localhost/EJC-Formation/formation-site-wordpress');

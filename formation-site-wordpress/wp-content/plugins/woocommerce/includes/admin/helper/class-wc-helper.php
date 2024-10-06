@@ -1007,7 +1007,6 @@ class WC_Helper {
 		self::_flush_authentication_cache();
 		self::_flush_subscriptions_cache();
 		self::_flush_updates_cache();
-		self::flush_product_usage_notice_rules_cache();
 	}
 
 	/**
@@ -1336,34 +1335,6 @@ class WC_Helper {
 	}
 
 	/**
-	 * Get the user's unconnected subscriptions.
-	 *
-	 * @return array
-	 */
-	public static function get_unconnected_subscriptions() {
-		static $unconnected_subscriptions = null;
-
-		// Cache unconnected_subscriptions in the current request.
-		if ( is_null( $unconnected_subscriptions ) ) {
-			$auth    = WC_Helper_Options::get( 'auth' );
-			$site_id = isset( $auth['site_id'] ) ? absint( $auth['site_id'] ) : 0;
-			if ( 0 === $site_id ) {
-				$unconnected_subscriptions = array();
-				return $unconnected_subscriptions;
-			}
-
-			$unconnected_subscriptions = array_filter(
-				self::get_subscriptions(),
-				function ( $subscription ) use ( $site_id ) {
-					return empty( $subscription['connections'] );
-				}
-			);
-		}
-
-		return $unconnected_subscriptions;
-	}
-
-	/**
 	 * Get subscription state of a given product ID.
 	 *
 	 * @since TBD
@@ -1590,7 +1561,6 @@ class WC_Helper {
 			'product-usage-notice-rules',
 			array(
 				'authenticated' => false,
-				'timeout'       => 2,
 			)
 		);
 
@@ -1865,22 +1835,8 @@ class WC_Helper {
 			return false;
 		}
 
-		// Find subscriptions that can be activated.
-		$product_subscriptions_without_maxed_connections = wp_list_filter(
-			$product_subscriptions,
-			array(
-				'maxed' => false,
-			)
-		);
-
-		if ( 0 < count( $product_subscriptions_without_maxed_connections ) ) {
-			// Pick the first subscription available for activation.
-			$product_subscription = array_shift( $product_subscriptions_without_maxed_connections );
-		} else {
-			// If there are multiple subscriptions, but no active subscriptions, then mark the first one as installed.
-			$product_subscription = array_shift( $product_subscriptions );
-		}
-
+		// If there are multiple subscriptions, but no active subscriptions, then mark the first one as installed.
+		$product_subscription = array_shift( $product_subscriptions );
 		if ( $product_subscription['product_key'] === $subscription['product_key'] ) {
 			return true;
 		}
@@ -2217,13 +2173,6 @@ class WC_Helper {
 	}
 
 	/**
-	 * Flush product-usage-notice-rules cache.
-	 */
-	public static function flush_product_usage_notice_rules_cache() {
-		delete_transient( '_woocommerce_helper_product_usage_notice_rules' );
-	}
-
-	/**
 	 * Flush auth cache.
 	 */
 	public static function _flush_authentication_cache() {
@@ -2322,7 +2271,6 @@ class WC_Helper {
 
 		self::_flush_subscriptions_cache();
 		self::_flush_updates_cache();
-		self::flush_product_usage_notice_rules_cache();
 	}
 
 	/**
@@ -2412,7 +2360,6 @@ class WC_Helper {
 
 		self::_flush_subscriptions_cache();
 		self::_flush_updates_cache();
-		self::flush_product_usage_notice_rules_cache();
 	}
 
 	/**

@@ -4,9 +4,7 @@
 	"title": "Filter Options",
 	"description": "Enable customers to filter the product collection by rating.",
 	"category": "woocommerce",
-	"keywords": [
-		"WooCommerce"
-	],
+	"keywords": [ "WooCommerce" ],
 	"supports": {
 		"interactivity": true,
 		"inserter": false,
@@ -15,13 +13,8 @@
 			"text": true
 		}
 	},
-	"ancestor": [
-		"woocommerce/product-filter"
-	],
-	"usesContext": [
-		"query",
-		"queryId"
-	],
+	"ancestor": [ "woocommerce/product-filter" ],
+	"usesContext": [ "query", "queryId" ],
 	"attributes": {
 		"className": {
 			"type": "string",
@@ -45,6 +38,6 @@
 		}
 	},
 	"textdomain": "woocommerce",
-	"apiVersion": 3,
+	"apiVersion": 2,
 	"$schema": "https://schemas.wp.org/trunk/block.json"
 }

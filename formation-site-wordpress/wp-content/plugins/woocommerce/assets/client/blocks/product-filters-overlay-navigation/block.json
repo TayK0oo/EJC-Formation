@@ -1,11 +1,11 @@
 {
 	"name": "woocommerce/product-filters-overlay-navigation",
-	"title": "Overlay Navigation (Experimental)",
+	"title": "Navigation (Experimental)",
 	"description": "Display overlay navigation controls.",
 	"category": "woocommerce",
 	"keywords": [ "WooCommerce" ],
 	"textdomain": "woocommerce",
-	"ancestor": [ "woocommerce/product-filters-overlay", "woocommerce/product-filters" ],
+	"ancestor": [ "woocommerce/product-filters-overlay" ],
 	"attributes": {
 		"align": {
 			"type": "string",
@@ -22,10 +22,6 @@
 		"iconSize": {
 			"type": "string"
 		},
-		"overlayMode": {
-			"type": "string",
-			"default": "never"
-		},
 		"style": {
 			"type": "object",
 			"default": {
@@ -33,10 +29,6 @@
 					"blockGap": "1rem"
 				}
 			}
-		},
-		"triggerType": {
-			"type": "string",
-			"default": "close-overlay"
 		}
 	},
 	"supports": {
@@ -95,7 +87,6 @@
 			}
 		}
 	},
-	"usesContext": [ "woocommerce/product-filters/overlay"],
 	"$schema": "https://schemas.wp.org/trunk/block.json",
 	"apiVersion": 3
 }

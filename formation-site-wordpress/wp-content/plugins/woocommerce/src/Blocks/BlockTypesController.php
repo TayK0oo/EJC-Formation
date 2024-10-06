@@ -350,7 +350,6 @@ final class BlockTypesController {
 			'ProductGalleryThumbnails',
 			'ProductImage',
 			'ProductImageGallery',
-			'ProductMeta',
 			'ProductNew',
 			'ProductOnSale',
 			'ProductPrice',
@@ -438,6 +437,7 @@ final class BlockTypesController {
 			$block_types = array_diff(
 				$block_types,
 				array(
+					'AddToCartForm',
 					'Breadcrumbs',
 					'CatalogSorting',
 					'ClassicTemplate',

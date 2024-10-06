@@ -1,5 +1,5 @@
 import { FormationManager } from '../models/FormationManager';
-import { WooCommerceProductDAO as FormationDAO } from '../dao/WooCommerceDaoProduct';
+import { FormationDAOImpl } from '../dao/FormationDAOImpl';
 
 //#region classes
 import { Formation } from '../models/classFormation';
@@ -7,7 +7,7 @@ import { Category } from '../models/classCategory';
 //#endregion
 
 export class FormationController {
-  private static formationManager = new FormationManager(new FormationDAO());
+  private static formationManager = new FormationManager(new FormationDAOImpl());
 
   static async getAllFormations() {
     return this.formationManager.getAllFormations();
@@ -21,4 +21,3 @@ export class FormationController {
     return this.formationManager.getFormationCategories();
   }
 }
-

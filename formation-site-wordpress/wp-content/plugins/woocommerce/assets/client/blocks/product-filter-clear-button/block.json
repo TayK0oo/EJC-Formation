@@ -5,15 +5,10 @@
 	"title": "Clear (Experimental)",
 	"description": "Allows shoppers to reset this filter.",
 	"category": "woocommerce",
-	"keywords": [
-		"WooCommerce",
-		"reset filter"
-	],
+	"keywords": [ "WooCommerce", "reset filter" ],
 	"textdomain": "woocommerce",
-	"apiVersion": 3,
-	"ancestor": [
-		"woocommerce/product-filter"
-	],
+	"apiVersion": 2,
+	"ancestor": [ "woocommerce/product-filter" ],
 	"supports": {
 		"interactivity": true,
 		"inserter": false

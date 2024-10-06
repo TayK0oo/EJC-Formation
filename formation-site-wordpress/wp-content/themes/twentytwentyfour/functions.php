@@ -204,6 +204,7 @@ if ( ! function_exists( 'twentytwentyfour_pattern_categories' ) ) :
 endif;
 
 add_action( 'init', 'twentytwentyfour_pattern_categories' );
+<<<<<<< HEAD
 
 add_action('init', 'add_cors_https_header');
 function add_cors_https_header(){
@@ -742,3 +743,5 @@ function get_next_formation_id_callback() {
     wp_die();
 }
 add_action('wp_ajax_get_next_formation_id', 'get_next_formation_id_callback');
+=======
+>>>>>>> parent of 72e35273 (Intégration api woocommerce, implementation ajout de formation, ajout de category, ajout de formateur)

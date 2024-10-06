@@ -508,7 +508,6 @@ class CheckoutFields {
 				'hidden'         => false,
 				'autocomplete'   => 'email',
 				'autocapitalize' => 'none',
-				'type'           => 'email',
 				'index'          => 0,
 			],
 			'country'    => [
@@ -781,7 +780,7 @@ class CheckoutFields {
 	 * @return mixed
 	 */
 	public function update_default_locale_with_fields( $locale ) {
-		foreach ( $this->get_fields_for_location( 'address' ) as $field_id => $additional_field ) {
+		foreach ( $this->fields_locations['address'] as $field_id => $additional_field ) {
 			if ( empty( $locale[ $field_id ] ) ) {
 				$locale[ $field_id ] = $additional_field;
 			}
