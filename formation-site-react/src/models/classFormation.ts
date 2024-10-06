@@ -1,5 +1,4 @@
 export interface Formation {
-    idR: string;
     id: string;
     titre: string;
     categorie: string;

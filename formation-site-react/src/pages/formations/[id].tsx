@@ -16,23 +16,17 @@ const FormationDetailPage: React.FC<FormationDetailPageProps> = ({ navigate }) =
 
   useEffect(() => {
     const fetchFormation = async () => {
-      const fullId = window.location.pathname.split('/').pop() || '';
-      const id = fullId.substring(0, 6);
-      const idr = fullId.substring(6);
-      const fetchedFormation = await FormationController.getFormationById(idr);
+      const id = window.location.pathname.split('/').pop() || '';
+      const fetchedFormation = await FormationController.getFormationById(id);
       setFormation(fetchedFormation);
-
 
       //Load image with the first 3 characters of the id
       if (fetchedFormation && fetchedFormation.id) {
         const imageName = `${id.substring(0, 3)}.png`;
-      
         const imageFolder = 'categories';
-        console.log(imageName);
         if (imageExists(imageName, imageFolder)) {
           const src = await importImage(imageName, imageFolder);
           setImageUrl(src);
-
         } else {
           setImageUrl('/path/to/default/image.png');
         }

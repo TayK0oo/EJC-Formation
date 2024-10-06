@@ -23,7 +23,7 @@ export class FormationDAOImpl implements IFormationDAO {
     return Promise.resolve(formation || null);
   }
 
-  async getFormations(filters?: Filter | null): Promise<Formation[]> {
+  static async getFormations(filters?: Filter | null): Promise<Formation[]> {
     let formations: Formation[] = formationsData.formations as Formation[];
     
     if (filters) {
