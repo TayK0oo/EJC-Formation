@@ -1,11 +1,13 @@
 // controllers/HomeController.ts
-import { FormationDAOImpl } from '../dao/FormationDAOImpl';
+import { WooCommerceProductDAO as FormationDAO} from '../dao/WooCommerceDaoProduct';
 import { Formation } from '../models/classFormation';
 import { Filter } from '../models/Filter';
 
 export class HomeController {
+  
   static async getHomePageData(filters?: Filter | null): Promise<{ formations: Formation[] }> {
-    const formations = await FormationDAOImpl.getFormations(filters);
+    const dao = new FormationDAO();
+    const formations = await dao.getFormations(filters);
     return { formations };
   }
 }

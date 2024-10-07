@@ -204,3 +204,541 @@ if ( ! function_exists( 'twentytwentyfour_pattern_categories' ) ) :
 endif;
 
 add_action( 'init', 'twentytwentyfour_pattern_categories' );
+
+add_action('init', 'add_cors_https_header');
+function add_cors_https_header(){
+    header("Access-Control-Allow-Origin: *");
+    header("Access-Control-Allow-Methods: GET, POST, OPTIONS, PUT, DELETE");
+    header("Access-Control-Allow-Headers: Authorization, Content-Type");
+}
+
+add_action('init', 'add_cors_http_header');
+function add_cors_http_header(){
+    header("Access-Control-Allow-Origin: *");
+    header("Access-Control-Allow-Methods: GET, POST, OPTIONS, PUT, DELETE");
+    header("Access-Control-Allow-Headers: Authorization, Content-Type");
+}
+
+
+
+
+
+
+/* Ajout champs personnalisé woocommerce */
+
+
+
+// Crée une nouvelle taxonomie pour les formateurs
+function create_formateur_taxonomy() {
+	$labels = array(
+		'name' => 'Formateurs',
+		'singular_name' => 'Formateur',
+		'menu_name' => 'Formateurs',
+		'all_items' => 'Tous les formateurs',
+		'edit_item' => 'Modifier le formateur',
+		'view_item' => 'Voir le formateur',
+		'update_item' => 'Mettre à jour le formateur',
+		'add_new_item' => 'Ajouter un nouveau formateur',
+		'new_item_name' => 'Nom du nouveau formateur',
+		'search_items' => 'Rechercher des formateurs',
+	);
+
+	$args = array(
+		'hierarchical' => false,
+		'labels' => $labels,
+		'show_ui' => true,
+		'show_admin_column' => true,
+		'query_var' => true,
+		'rewrite' => array('slug' => 'formateur'),
+	);
+
+	register_taxonomy('formateur', array('product'), $args);
+}
+add_action('init', 'create_formateur_taxonomy', 0);
+
+// Ajoute des champs personnalisés pour les produits WooCommerce
+function add_formation_custom_fields() {
+	global $woocommerce, $post;
+
+	echo '<div class="options_group">';
+
+	// ID de la formation
+	woocommerce_wp_text_input(
+		array(
+			'id' => '_formation_id',
+			'label' => __('ID de la formation', 'woocommerce'),
+			'placeholder' => 'Ex: ENT002',
+			'desc_tip' => 'true',
+			'description' => __('Entrez l\'ID unique de la formation.', 'woocommerce')
+		)
+	);
+
+	// Catégorie de formation (utilisant les catégories WooCommerce)
+	$product_categories = get_terms(array(
+		'taxonomy' => 'product_cat',
+		'hide_empty' => false,
+	));
+	$category_options = array('' => 'Sélectionnez une catégorie');
+	foreach ($product_categories as $category) {
+		$category_options[$category->term_id] = $category->name;
+	}
+	woocommerce_wp_select(
+		array(
+			'id' => 'product_cat',
+			'label' => __('Catégorie de formation', 'woocommerce'),
+			'options' => $category_options,
+			'desc_tip' => 'true',
+			'description' => __('Sélectionnez la catégorie de la formation.', 'woocommerce')
+		)
+	);
+
+	// Durée
+	woocommerce_wp_text_input(
+		array(
+			'id' => '_formation_duree',
+			'label' => __('Durée', 'woocommerce'),
+			'placeholder' => 'Ex: 30h',
+			'desc_tip' => 'true',
+			'description' => __('Entrez la durée de la formation.', 'woocommerce')
+		)
+	);
+
+	// Compétences acquises
+	woocommerce_wp_textarea_input(
+		array(
+			'id' => '_formation_competences',
+			'label' => __('Compétences acquises', 'woocommerce'),
+			'placeholder' => 'Listez les compétences, une par ligne',
+			'desc_tip' => 'true',
+			'description' => __('Entrez les compétences acquises, une par ligne.', 'woocommerce')
+		)
+	);
+
+	// Public cible
+	woocommerce_wp_textarea_input(
+		array(
+			'id' => '_formation_public_cible',
+			'label' => __('Public cible', 'woocommerce'),
+			'placeholder' => 'Listez le public cible, un par ligne',
+			'desc_tip' => 'true',
+			'description' => __('Entrez le public cible, un par ligne.', 'woocommerce')
+		)
+	);
+
+	// Modalités
+	woocommerce_wp_text_input(
+		array(
+			'id' => '_formation_modalites',
+			'label' => __('Modalités', 'woocommerce'),
+			'placeholder' => 'Ex: En ligne',
+			'desc_tip' => 'true',
+			'description' => __('Entrez les modalités de la formation.', 'woocommerce')
+		)
+	);
+
+	// Prérequis
+	woocommerce_wp_text_input(
+		array(
+			'id' => '_formation_prerequis',
+			'label' => __('Prérequis', 'woocommerce'),
+			'placeholder' => 'Ex: Avoir un projet d\'entreprise',
+			'desc_tip' => 'true',
+			'description' => __('Entrez les prérequis pour la formation.', 'woocommerce')
+		)
+	);
+
+	// Lieu
+	woocommerce_wp_text_input(
+		array(
+			'id' => '_formation_lieu',
+			'label' => __('Lieu', 'woocommerce'),
+			'placeholder' => 'Ex: Plateforme d\'apprentissage en ligne',
+			'desc_tip' => 'true',
+			'description' => __('Entrez le lieu de la formation.', 'woocommerce')
+		)
+	);
+
+	// Formateur (liste déroulante)
+	$formateurs = get_terms(array(
+		'taxonomy' => 'formateur',
+		'hide_empty' => false,
+	));
+	$formateur_options = array('' => 'Sélectionnez un formateur');
+	foreach ($formateurs as $formateur) {
+		$formateur_options[$formateur->term_id] = $formateur->name;
+	}
+	woocommerce_wp_select(
+		array(
+			'id' => 'formateur',
+			'label' => __('Formateur', 'woocommerce'),
+			'options' => $formateur_options,
+			'desc_tip' => 'true',
+			'description' => __('Sélectionnez le formateur.', 'woocommerce')
+		)
+	);
+
+	// Champ de tags
+	woocommerce_wp_text_input(
+		array(
+			'id' => 'product_tags',
+			'label' => __('Tags', 'woocommerce'),
+			'placeholder' => 'Ecrivez deux caractères min pour voir les suggestions',
+			'description' => __('Entrez les tags séparés par des virgules.', 'woocommerce'),
+			'desc_tip' => true,
+			'value' => implode(', ', wp_get_post_terms($post->ID, 'product_tag', array('fields' => 'names')))
+		)
+	);
+}
+add_action('woocommerce_product_options_general_product_data', 'add_formation_custom_fields');
+
+// Script pour l'autocomplétion des tags de formation
+function formation_tags_autocomplete_script() {
+    global $post_type;
+    if ($post_type != 'product') return;
+    ?>
+    <script type="text/javascript">
+    jQuery(document).ready(function($) {
+        function split(val) {
+            return val.split(/,\s*/);
+        }
+        function extractLast(term) {
+            return split(term).pop();
+        }
+
+        $("#product_tags").autocomplete({
+            source: function(request, response) {
+                $.ajax({
+                    url: ajaxurl,
+                    dataType: "json",
+                    data: {
+                        action: "get_formation_terms",
+                        term: extractLast(request.term),
+                        taxonomy: "product_tag"
+                    },
+                    success: function(data) {
+                        response(data);
+                    }
+                });
+            },
+            search: function() {
+                var term = extractLast(this.value);
+                if (term.length < 2) {
+                    return false;
+                }
+            },
+            focus: function() {
+                return false;
+            },
+            select: function(event, ui) {
+                var terms = split(this.value);
+                terms.pop();
+                terms.push(ui.item.label);
+                terms.push("");
+                this.value = terms.join(", ");
+                return false;
+            }
+        });
+    });
+    </script>
+    <?php
+}
+add_action('admin_footer', 'formation_tags_autocomplete_script');
+
+
+
+// Callback pour récupérer les tags de produit
+function get_product_tags_callback() {
+	$term = $_GET['term'];
+	$tags = get_terms(array(
+		'taxonomy' => 'product_tag',
+		'hide_empty' => false,
+		'search' => $term
+	));
+
+	$tag_list = array();
+	foreach ($tags as $tag) {
+		$tag_list[] = $tag->name;
+	}
+
+	echo json_encode($tag_list);
+	wp_die();
+}
+add_action('wp_ajax_get_product_tags', 'get_product_tags_callback');
+
+// Enqueue jQuery UI pour l'autocomplétion
+function enqueue_jquery_ui() {
+	global $post_type;
+	if ($post_type == 'product') {
+		wp_enqueue_script('jquery-ui-autocomplete');
+		wp_enqueue_style('jquery-ui-css', '//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css');
+	}
+}
+add_action('admin_enqueue_scripts', 'enqueue_jquery_ui');
+
+// Callback pour récupérer les termes de formation
+function get_formation_terms_callback() {
+	$term = $_GET['term'];
+	$taxonomy = $_GET['taxonomy'];
+	$terms = get_terms(array(
+		'taxonomy' => $taxonomy,
+		'hide_empty' => false,
+		'search' => $term
+	));
+
+	$term_list = array();
+	foreach ($terms as $term) {
+		$term_list[] = array(
+			'label' => $term->name,
+			'value' => $term->term_id
+		);
+	}
+
+	echo json_encode($term_list);
+	wp_die();
+}
+add_action('wp_ajax_get_formation_terms', 'get_formation_terms_callback');
+
+// Sauvegarde des champs personnalisés pour les produits WooCommerce
+function save_formation_custom_fields($post_id) {
+	$fields = array(
+		'_formation_id',
+		'_formation_duree',
+		'_formation_competences',
+		'_formation_public_cible',
+		'_formation_modalites',
+		'_formation_prerequis',
+		'_formation_lieu'
+	);
+
+	foreach ($fields as $field) {
+		$value = isset($_POST[$field]) ? $_POST[$field] : '';
+		update_post_meta($post_id, $field, sanitize_text_field($value));
+	}
+
+	// Sauvegarde de la catégorie de formation (utilisant product_cat)
+	if (isset($_POST['product_cat'])) {
+		$category_id = sanitize_text_field($_POST['product_cat']);
+		if (!empty($category_id)) {
+			wp_set_object_terms($post_id, intval($category_id), 'product_cat');
+		}
+	}
+
+	// Sauvegarde du formateur
+	if (isset($_POST['formateur'])) {
+		$formateur_id = sanitize_text_field($_POST['formateur']);
+		if (!empty($formateur_id)) {
+			wp_set_object_terms($post_id, intval($formateur_id), 'formateur');
+		}
+	}
+
+	// Sauvegarde des tags
+	if (isset($_POST['product_tags'])) {
+		$tags = explode(',', sanitize_text_field($_POST['product_tags']));
+		$tags = array_map('trim', $tags);
+		wp_set_object_terms($post_id, $tags, 'product_tag');
+	}
+}
+add_action('woocommerce_process_product_meta', 'save_formation_custom_fields');
+
+function add_new_term_script() {
+    global $post_type;
+    if ($post_type != 'product') return;
+    ?>
+    <script type="text/javascript">
+    jQuery(document).ready(function($) {
+        $('#product_cat, #formateur, #product_tags').each(function() {
+            var $input = $(this);
+            var taxonomyName = $input.attr('id') === 'formateur' ? 'formateur' : 
+                               ($input.attr('id') === 'product_tags' ? 'product_tag' : 'product_cat');
+            var $addNew = $('<a href="#" class="add-new-term">Ajouter nouveau</a>');
+            
+            $input.after($addNew);
+            
+            $addNew.on('click', function(e) {
+                e.preventDefault();
+                var newTerm = prompt("Entrez le nom du nouveau terme :");
+                if (newTerm) {
+                    $.ajax({
+                        url: ajaxurl,
+                        type: 'POST',
+                        data: {
+                            action: 'add_new_term',
+                            taxonomy: taxonomyName,
+                            term: newTerm
+                        },
+                        success: function(response) {
+                            var data = JSON.parse(response);
+                            if (data.success) {
+                                if (taxonomyName === 'product_tag') {
+                                    var currentTags = $input.val();
+                                    $input.val(currentTags ? currentTags + ', ' + newTerm : newTerm);
+                                } else {
+                                    $input.append($('<option>', {
+                                        value: data.term_id,
+                                        text: newTerm
+                                    }));
+                                    $input.val(data.term_id);
+                                }
+                            } else {
+                                alert('Erreur lors de l\'ajout du terme : ' + data.message);
+                            }
+                        }
+                    });
+                }
+            });
+        });
+    });
+    </script>
+    <?php
+}
+add_action('admin_footer', 'add_new_term_script');
+
+// Callback pour ajouter un nouveau terme via AJAX
+function add_new_term_callback() {
+	$taxonomy = $_POST['taxonomy'];
+	$term = $_POST['term'];
+	
+	$result = wp_insert_term($term, $taxonomy);
+	
+	if (is_wp_error($result)) {
+		echo json_encode(array('success' => false, 'message' => $result->get_error_message()));
+	} else {
+		echo json_encode(array('success' => true, 'term_id' => $result['term_id']));
+	}
+	
+	wp_die();
+}
+add_action('wp_ajax_add_new_term', 'add_new_term_callback');
+
+
+// Fonction pour générer le prochain ID de formation disponible en fonction de la catégorie
+function get_next_formation_id($category_slug) {
+    // Obtenir tous les produits de la catégorie donnée
+    $args = array(
+        'post_type' => 'product',
+        'posts_per_page' => -1,
+        'tax_query' => array(
+            array(
+                'taxonomy' => 'product_cat',
+                'field' => 'slug',
+                'terms' => $category_slug
+            )
+        ),
+        'meta_query' => array(
+            array(
+                'key' => '_formation_id',
+                'compare' => 'EXISTS',
+            )
+        )
+    );
+    
+    $products = get_posts($args);
+    $existing_ids = array();
+    
+    // Parcourir les produits et extraire les IDs de formation
+    foreach ($products as $product) {
+        $formation_id = get_post_meta($product->ID, '_formation_id', true);
+        if (!empty($formation_id)) {
+            $existing_ids[] = $formation_id;
+        }
+    }
+    
+    // Générer le préfixe basé sur les 3 premières lettres du slug de la catégorie
+    $prefix = strtoupper(substr($category_slug, 0, 3));
+    
+    // Filtrer les IDs qui correspondent à ce préfixe et récupérer les numéros
+    $max_number = 0;
+    foreach ($existing_ids as $id) {
+        if (strpos($id, $prefix) === 0) {
+            $number = (int) filter_var(substr($id, 3), FILTER_SANITIZE_NUMBER_INT);
+            if ($number > $max_number) {
+                $max_number = $number;
+            }
+        }
+    }
+    
+    // Incrémenter le numéro pour le prochain ID
+    $next_number = $max_number + 1;
+    $next_formation_id = $prefix . str_pad($next_number, 3, '0', STR_PAD_LEFT);
+    
+    return $next_formation_id;
+}
+
+
+function auto_fill_formation_id_script() {
+    global $post_type;
+    if ($post_type != 'product') return;
+    ?>
+    <script type="text/javascript">
+    jQuery(document).ready(function($) {
+    // Quand la catégorie change
+    $('#product_cat').on('change', function() {
+        var categoryId = $(this).val();
+        console.log('Catégorie sélectionnée:', categoryId); // Log de la catégorie sélectionnée
+        
+        if (!categoryId) {
+            console.log('Aucune catégorie sélectionnée.');
+            return;
+        }
+
+        // Appel AJAX pour récupérer l'ID disponible
+        $.ajax({
+            url: ajaxurl,
+            type: 'POST',
+            data: {
+                action: 'get_next_formation_id',
+                category_id: categoryId
+            },
+            success: function(response) {
+                try {
+                    // Si la réponse est en chaîne de caractères, la convertir en objet JSON
+                    var data = typeof response === "string" ? JSON.parse(response) : response;
+                    
+                    console.log('Réponse AJAX:', data); // Log de la réponse AJAX
+                    if (data.success) {
+                        $('#_formation_id').val(data.formation_id); // Remplir le champ ID
+                        console.log('ID de formation généré:', data.formation_id); // Log de l'ID généré
+                    } else {
+                        console.error('Erreur AJAX: ' + data.message);
+                    }
+                } catch (error) {
+                    console.error('Erreur lors du traitement de la réponse AJAX:', error);
+                }
+            },
+            error: function(jqXHR, textStatus, errorThrown) {
+                console.error('Erreur lors de la requête AJAX:', textStatus, errorThrown);
+            }
+        });
+    });
+});
+
+    </script>
+    <?php
+}
+add_action('admin_footer', 'auto_fill_formation_id_script');
+
+
+
+// Callback AJAX pour obtenir le prochain ID de formation disponible
+function get_next_formation_id_callback() {
+    if (!isset($_POST['category_id'])) {
+        echo json_encode(array('success' => false, 'message' => 'Catégorie non spécifiée.'));
+        wp_die();
+    }
+    
+    // Obtenir le slug de la catégorie depuis son ID
+    $category_id = sanitize_text_field($_POST['category_id']);
+    $category = get_term($category_id, 'product_cat');
+    
+    if (!$category || is_wp_error($category)) {
+        echo json_encode(array('success' => false, 'message' => 'Catégorie non valide.'));
+        wp_die();
+    }
+    
+    // Générer le prochain ID de formation disponible
+    $next_formation_id = get_next_formation_id($category->slug);
+    
+    echo json_encode(array('success' => true, 'formation_id' => $next_formation_id));
+    wp_die();
+}
+add_action('wp_ajax_get_next_formation_id', 'get_next_formation_id_callback');

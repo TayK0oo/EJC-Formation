@@ -18,6 +18,7 @@ export class FormationManager {
   }
 
   async getFormationById(id: string): Promise<Formation | null> {
+
     return await this.formationDAO.getFormationById(id);
   }
 
