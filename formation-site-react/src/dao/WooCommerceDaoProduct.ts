@@ -3,6 +3,7 @@ import { Formation } from '../models/classFormation';
 import api from '../config/woocommerce';
 import adminApi from '../config/woocommerceAdmin'; // Pour la gestion Admin
 import { Filter } from '../models/Filter'; // Assurez-vous d'avoir une interface Filter
+import formationsLocalData from '../ressources/formation/formations.json'; // Pour les données locales
 
 export class WooCommerceProductDAO implements IFormationDAO {
   private formations: Formation[];
@@ -26,10 +27,8 @@ export class WooCommerceProductDAO implements IFormationDAO {
 
       console.log(products);
 
-
       this.formations = products.map((product: any) => ({
         idR: product.id,
-
         id: product.meta_data.find((meta: any) => meta.key === '_formation_id')?.value || '',
         titre: product.name,
         categorie: product.categories.length > 0 ? product.categories[0].name : 'Non catégorisé',
@@ -47,11 +46,10 @@ export class WooCommerceProductDAO implements IFormationDAO {
       return this.formations;
     } catch (error) {
       console.error("Erreur lors de la récupération des formations :", error);
-      throw new Error("Erreur lors de la récupération des formations");
+      console.log("Chargement des formations locales...");
+      return Promise.resolve(formationsLocalData.formations as Formation[]);
     }
   }
-
-
 
   async getFormationById(id: string): Promise<Formation | null> {
     try {
@@ -63,8 +61,6 @@ export class WooCommerceProductDAO implements IFormationDAO {
       if (!product) {
         return null;
       }
-
-      
 
       // Transformer le produit en une instance de Formation
       const formation: Formation = {
@@ -86,7 +82,9 @@ export class WooCommerceProductDAO implements IFormationDAO {
       return formation;
     } catch (error) {
       console.error("Erreur lors de la récupération de la formation :", error);
-      return null;
+      console.log("Chargement des formations locales...");
+      const formation = formationsLocalData.formations.find(f => f.id === id) as Formation;
+      return Promise.resolve(formation || null);
     }
   }
 
@@ -120,7 +118,6 @@ export class WooCommerceProductDAO implements IFormationDAO {
       // Transformer les produits en une liste de formations
       this.formations = products.map((product: any) => ({
         idR: product.id,
-
         id: product.meta_data.find((meta: any) => meta.key === '_formation_id')?.value || '',
         titre: product.name,
         categorie: product.categories.length > 0 ? product.categories[0].name : 'Non catégorisé',
@@ -138,9 +135,37 @@ export class WooCommerceProductDAO implements IFormationDAO {
       return this.formations;
     } catch (error) {
       console.error("Erreur lors de la récupération des formations avec filtres :", error);
-      throw new Error("Erreur lors de la récupération des formations avec filtres");
+      console.log("Chargement des formations locales...");
+      let formations: Formation[] = formationsLocalData.formations as Formation[];
+    
+    if (filters) {
+      formations = formations.filter(f => {
+        // Filtre par catégorie
+        if (filters.category && !f.categorie.toLowerCase().includes(filters.category.toLowerCase())) {
+          return false;
+        }
+  
+        // Filtre par prix
+        if (filters.price) {
+          const formationPrice = parseFloat(f.tarif.replace(/[^0-9.,]/g, '').replace(',', '.'));
+          if (isNaN(formationPrice) || formationPrice > filters.price) {
+            return false;
+          }
+        }
+  
+        // Filtre par durée
+        if (filters.duration) {
+          const formationDuration = parseFloat(f.duree.replace(/[^0-9.,]/g, '').replace(',', '.'));
+          if (isNaN(formationDuration) || formationDuration > filters.duration) {
+            return false;
+          }
+        }
+  
+        return true;
+      });
+    }
+  
+    return Promise.resolve(formations);
     }
   }
 }
-
-
