@@ -36,15 +36,21 @@ export class Router {
     }
   }
 
-  public findMatchingRoute(path: string): Route | undefined {
-    return this.routes.find(route => {
-      if (route.exact) {
-        return route.path === path;
-      }
-      const routeParts = route.path.split('/');
-      const pathParts = path.split('/');
-      if (routeParts.length !== pathParts.length) return false;
-      return routeParts.every((part, i) => part === pathParts[i] || part.startsWith(':'));
-    });
-  }
+  
+
+public findMatchingRoute(path: string): Route | undefined {
+  const BASE_PATH = '/EJC-Formation/formation-site-react';
+  // Supprimer le chemin de base de l'URL actuelle
+  const trimmedPath = path.startsWith(BASE_PATH) ? path.slice(BASE_PATH.length) : path;
+  
+  return this.routes.find(route => {
+    if (route.exact) {
+      return route.path === trimmedPath;
+    }
+    const routeParts = route.path.split('/');
+    const pathParts = trimmedPath.split('/');
+    if (routeParts.length !== pathParts.length) return false;
+    return routeParts.every((part, i) => part === pathParts[i] || part.startsWith(':'));
+  });
+}
 }
