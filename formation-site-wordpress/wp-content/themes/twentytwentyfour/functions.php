@@ -226,8 +226,6 @@ function add_cors_http_header(){
 
 /* Ajout champs personnalisé woocommerce */
 
-
-
 // Crée une nouvelle taxonomie pour les formateurs
 function create_formateur_taxonomy() {
 	$labels = array(
@@ -262,17 +260,6 @@ function add_formation_custom_fields() {
 
 	echo '<div class="options_group">';
 
-	// ID de la formation
-	woocommerce_wp_text_input(
-		array(
-			'id' => '_formation_id',
-			'label' => __('ID de la formation', 'woocommerce'),
-			'placeholder' => 'Ex: ENT002',
-			'desc_tip' => 'true',
-			'description' => __('Entrez l\'ID unique de la formation.', 'woocommerce')
-		)
-	);
-
 	// Catégorie de formation (utilisant les catégories WooCommerce)
 	$product_categories = get_terms(array(
 		'taxonomy' => 'product_cat',
@@ -291,6 +278,19 @@ function add_formation_custom_fields() {
 			'description' => __('Sélectionnez la catégorie de la formation.', 'woocommerce')
 		)
 	);
+
+	// ID de la formation
+	woocommerce_wp_text_input(
+		array(
+			'id' => '_formation_id',
+			'label' => __('ID de la formation', 'woocommerce'),
+			'placeholder' => 'Ex: ENT002',
+			'desc_tip' => 'true',
+			'description' => __('Entrez l\'ID unique de la formation.', 'woocommerce')
+		)
+	);
+
+	
 
 	// Durée
 	woocommerce_wp_text_input(
@@ -326,13 +326,16 @@ function add_formation_custom_fields() {
 	);
 
 	// Modalités
-	woocommerce_wp_text_input(
+	woocommerce_wp_select(
 		array(
-			'id' => '_formation_modalites',
-			'label' => __('Modalités', 'woocommerce'),
-			'placeholder' => 'Ex: En ligne',
-			'desc_tip' => 'true',
-			'description' => __('Entrez les modalités de la formation.', 'woocommerce')
+			'id' => '_modalites',
+			'label' => 'Modalités',
+			'options' => array(
+				'' => 'Sélectionnez une modalité',
+				'En ligne' => 'En ligne',
+				'Coaching Perso' => 'Coaching Perso',
+				'Coaching Collectif' => 'Coaching Collectif'
+			)
 		)
 	);
 
@@ -536,6 +539,12 @@ function save_formation_custom_fields($post_id) {
 		$tags = explode(',', sanitize_text_field($_POST['product_tags']));
 		$tags = array_map('trim', $tags);
 		wp_set_object_terms($post_id, $tags, 'product_tag');
+	}
+
+	// Sauvegarde des modalités
+	if (isset($_POST['_modalites'])) {
+		$modalites = sanitize_text_field($_POST['_modalites']);
+		update_post_meta($post_id, '_modalites', $modalites);
 	}
 }
 add_action('woocommerce_process_product_meta', 'save_formation_custom_fields');
