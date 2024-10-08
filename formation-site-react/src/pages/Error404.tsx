@@ -1,12 +1,16 @@
 import React from 'react';
 import { CSSProperties } from 'react';
 
-const Error404: React.FC = () => {
+interface ErrorProps {
+    navigate: (path: string) => void;
+}
+
+const Error404: React.FC<ErrorProps> = ({ navigate }) => {
     return (
         <div style={styles.container}>
             <h1 style={styles.header}>404 - Page Not Found</h1>
             <p style={styles.paragraph}>Sorry, the page you are looking for does not exist.</p>
-            <a href="/" style={styles.link}>Go back to Home</a>
+            <a style={styles.link} onClick={() => navigate('/')}>Go back to Home</a>
         </div>
     );
 };

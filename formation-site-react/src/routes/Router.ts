@@ -1,6 +1,5 @@
 // src/routes/Router.ts
 
-
 import { Route } from './routes';
 import Error404 from '../pages/Error404';
 
@@ -16,40 +15,37 @@ export class Router {
     this.handlePopState = this.handlePopState.bind(this);
   }
 
-  public init() {
+  public init(): void {
     window.addEventListener('popstate', this.handlePopState);
     this.handlePopState();
   }
 
-  public cleanup() {
+  public cleanup(): void {
     window.removeEventListener('popstate', this.handlePopState);
   }
 
-  public navigate(path: string) {
+  public navigate(path: string): void {
     const fullPath = `${BASE_PATH}${path}`;
     window.history.pushState(null, '', fullPath);
     this.handlePopState();
   }
 
-  private handlePopState() {
+  private handlePopState(): void {
     const path = window.location.pathname;
     const route = this.findMatchingRoute(path);
-    console.log('route', route);
-    console.log('path', path);
+    console.log('route:', route);
+    console.log('path:', path);
     if (route) {
       this.setCurrentComponent(() => route.component);
     } else {
-      // Rediriger vers une page 404 ou une page par défaut
       this.setCurrentComponent(() => Error404);
     }
   }
 
-  
-
   public findMatchingRoute(path: string): Route | undefined {
     const trimmedPath = path.startsWith(BASE_PATH) ? path.slice(BASE_PATH.length) : path;
-    console.log('trimmedPath', trimmedPath);
-    
+    console.log('trimmedPath:', trimmedPath);
+
     return this.routes.find(route => {
       if (route.exact) {
         return route.path === trimmedPath;
