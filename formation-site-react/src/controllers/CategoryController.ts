@@ -6,7 +6,7 @@ export class CategoryController {
   private static categoryDAO: ICategoryDAO = new CategoryDAO();
 
   static async getAllCategories(): Promise<string[]> {
-    return await this.categoryDAO.getCategories();
+    return await this.categoryDAO.getNameCategories();
   }
 }
 

@@ -1,18 +1,24 @@
 // dao/CategoryDAO.ts
 import { ICategoryDAO } from './ICategoryDAO';
+import api from '../config/woocommerce';
+
 
 export class CategoryDAO implements ICategoryDAO {
-  async getCategories(): Promise<string[]> {
-    // Ici, on simule une requête asynchrone à une base de données
-    return [
-      "GESTION DE PROJETS",
-      "ENTREPRENEURIAT",
-      "COMMUNICATION",
-      "EFFICACITE PROFESSIONNELLE / MOTIVATION",
-      "CREATIVITE / ANIMATION",
-      "MANAGEMENT",
-      "SYSTEMES D'INFORMATION"
-    ];
+  private categories: string[] = [];
+  
+  async getNameCategories(): Promise<string[]> {
+    try {
+    const response = await api.get('products/categories', { params: { per_page: 100 } });
+    this.categories = response.data.map((category: any) => category.name);
+    // Enregistre les catégories dans le cache pour les utiliser dans les filtres
+    localStorage.setItem('categories', JSON.stringify(this.categories));
+    }
+    catch (error) {
+      console.error("Erreur lors de la récupération des catégories :", error);
+      this.categories = JSON.parse(localStorage.getItem('categories')!);
+    }
+    return this.categories;
   }
+  
 }
 

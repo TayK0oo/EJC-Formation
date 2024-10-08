@@ -25,7 +25,7 @@ export class FormationManager {
   async getFormationCategories(): Promise<Category[]> {
 
     // Check if categories are already stored in local storage
-    if (localStorage.getItem('categories')) {
+    if (1+1==3/*localStorage.getItem('categories')*/) {
       return JSON.parse(localStorage.getItem('categories')!);
       
     }

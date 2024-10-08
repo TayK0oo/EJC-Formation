@@ -105,7 +105,8 @@ const FilterWindow: React.FC<FilterWindowProps> = ({ onFilterApply }) => {
         >
           <option value="">Toutes</option>
           <option value="En ligne">En ligne</option>
-          <option value="Présentiel">Présentiel</option>
+          <option value="Coaching Perso">Coaching Perso</option>
+          <option value="Coaching Collectif">Coaching Collectif</option>
         </select>
       </div>
       <div className={styles.buttonContainer}>
