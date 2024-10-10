@@ -1,0 +1,6 @@
+/* src/views/LoginView.module.css */
+.wrapper {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }

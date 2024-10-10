@@ -38,6 +38,7 @@
     "jest": "^27.4.3",
     "jest-resolve": "^27.4.2",
     "jest-watch-typeahead": "^1.0.0",
+    "jwt-decode": "^4.0.0",
     "mini-css-extract-plugin": "^2.4.5",
     "postcss": "^8.4.4",
     "postcss-flexbugs-fixes": "^5.0.2",
@@ -97,6 +98,7 @@
   },
   "devDependencies": {
     "@types/dompurify": "^3.0.5",
+    "@types/jwt-decode": "^2.2.1",
     "@types/woocommerce__woocommerce-rest-api": "^1.0.5",
     "buffer": "^6.0.3",
     "gh-pages": "^6.1.1",

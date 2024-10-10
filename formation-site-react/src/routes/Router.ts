@@ -1,7 +1,7 @@
 // src/routes/Router.ts
 
 import { Route } from './routes';
-import Error404 from '../pages/Error404';
+import Error404 from '../pages/ErrorPage';
 
 export const BASE_PATH = '';
 

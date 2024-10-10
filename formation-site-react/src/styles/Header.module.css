@@ -1,6 +1,7 @@
 .header {
     background-color: var(--color-mustard);
     color: var(--color-white);
+    z-index: 1200;
   }
 
  

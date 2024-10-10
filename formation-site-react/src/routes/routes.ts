@@ -3,7 +3,8 @@
 import HomePage from '../pages/HomePage';
 import FormationDetailPage from '../pages/formations/[id]';
 import TestPage from '../pages/TestPage';
-import Error404 from '../pages/Error404';
+import Error404 from '../pages/ErrorPage';
+import LoginView from '../pages/LoginView';
 
 export interface Route {
   path: string;
@@ -16,4 +17,6 @@ export const routes: Route[] = [
   { path: '/formations/:id', component: FormationDetailPage },
   { path: '/test', component: TestPage },
   { path: '/error', component: Error404 },
+  { path: '/login', component: LoginView}
+
 ];
