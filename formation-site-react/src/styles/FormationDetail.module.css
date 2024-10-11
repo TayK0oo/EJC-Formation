@@ -181,6 +181,10 @@
   transform: rotate(2deg) scale(1.05);
 }
 
+.formationImage {
+  border-radius: 50% 60% 80% 30% / 50% 80% 80% 80%;
+}
+
 /* Media Queries */
 
 @media screen and (max-width: 1500px) {

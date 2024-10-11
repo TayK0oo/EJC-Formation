@@ -2,8 +2,6 @@ import React, { useState, useEffect } from 'react';
 import { FormationController } from '../../controllers/FormationController';
 import styles from '../../styles/FormationDetail.module.css';
 import { Formation } from '../../models/classFormation';
-import { importImage, imageExists } from '../../utils/imageImporter';
-
 
 interface FormationDetailPageProps {
   navigate: (path: string) => void;
@@ -12,31 +10,13 @@ interface FormationDetailPageProps {
 const FormationDetailPage: React.FC<FormationDetailPageProps> = ({ navigate }) => {
   const [formation, setFormation] = useState<Formation | null>(null);
   const [activeAccordion, setActiveAccordion] = useState<string | null>(null);
-  const [imageUrl, setImageUrl] = useState<string>('');
 
   useEffect(() => {
     const fetchFormation = async () => {
       const fullId = window.location.pathname.split('/').pop() || '';
-      const id = fullId.substring(0, 6);
       const idr = fullId.substring(6);
       const fetchedFormation = await FormationController.getFormationById(idr);
       setFormation(fetchedFormation);
-
-
-      //Load image with the first 3 characters of the id
-      if (fetchedFormation && fetchedFormation.id) {
-        const imageName = `${id.substring(0, 3)}.png`;
-      
-        const imageFolder = 'categories';
-        console.log(imageName);
-        if (imageExists(imageName, imageFolder)) {
-          const src = await importImage(imageName, imageFolder);
-          setImageUrl(src);
-
-        } else {
-          setImageUrl('/path/to/default/image.png');
-        }
-      }
     };
     fetchFormation();
   }, []);
@@ -49,6 +29,15 @@ const FormationDetailPage: React.FC<FormationDetailPageProps> = ({ navigate }) =
     setActiveAccordion(activeAccordion === section ? null : section);
   };
 
+  const renderMultilineText = (text: string) => {
+    return text.split('\n').map((line, index) => (
+      <React.Fragment key={index}>
+        {line}
+        <br />
+      </React.Fragment>
+    ));
+  };
+
   return (
     <div className={styles.formationDetail}>
       <h1>{formation.titre}</h1>
@@ -56,11 +45,11 @@ const FormationDetailPage: React.FC<FormationDetailPageProps> = ({ navigate }) =
       <div className={styles.mainInfo}>
         <div className={styles.infoItem}>
           <h3>Durée</h3>
-          <p>{formation.duree}</p>
+          <p>{formation.duree} h</p>
         </div>
         <div className={styles.infoItem}>
           <h3>Tarif</h3>
-          <p>{formation.tarif}</p>
+          <p>{formation.tarif} €</p>
         </div>
         <div className={styles.infoItem}>
           <h3>Modalités</h3>
@@ -76,7 +65,7 @@ const FormationDetailPage: React.FC<FormationDetailPageProps> = ({ navigate }) =
         <div className={styles.descriptionCompetences}>
           <section className={styles.description}>
             <h2>Description</h2>
-            <p>{formation.description}</p>
+            <p>{renderMultilineText(formation.description)}</p>
           </section>
 
           <section className={styles.competences}>
@@ -88,7 +77,9 @@ const FormationDetailPage: React.FC<FormationDetailPageProps> = ({ navigate }) =
             </ul>
           </section>
         </div>
-        <img src={imageUrl} alt={formation.titre} className={styles.formationImage} />
+        {formation.imageUrl && (
+          <img src={formation.imageUrl} alt={formation.titre} className={styles.formationImage} />
+        )}
       </div>
 
       <div className={styles.accordionSection}>
@@ -116,13 +107,16 @@ const FormationDetailPage: React.FC<FormationDetailPageProps> = ({ navigate }) =
             Prérequis
           </div>
           <div className={`${styles.accordionContent} ${activeAccordion === 'prerequis' ? styles.active : ''}`}>
-            <p>{formation.prerequis}</p>
+            <ul className={styles.publicCibleList}>
+              {formation.prerequis.map((cible, index) => (
+                <li key={index}>{cible}</li>
+              ))}
+            </ul>
           </div>
         </div>
       </div>
 
       <button onClick={() => navigate('/')}>Retour à l'accueil</button>
-
     </div>
   );
 };

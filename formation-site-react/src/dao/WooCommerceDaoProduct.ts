@@ -18,6 +18,7 @@ export class WooCommerceProductDAO implements IFormationDAO {
   }
 
   private mapProductToFormation(product: any): Formation {
+    console.log(product.images);
     return {
       idR: product.id,
       id: this.findMetaDataValue(product.meta_data, '_formation_id'),
@@ -29,9 +30,10 @@ export class WooCommerceProductDAO implements IFormationDAO {
       competencesAcquises: this.splitAndTrimLines(this.findMetaDataValue(product.meta_data, '_formation_competences')),
       publicCible: this.splitAndTrimLines(this.findMetaDataValue(product.meta_data, '_formation_public_cible')),
       modalites: this.findMetaDataValue(product.meta_data, '_formation_modalites'),
-      prerequis: this.findMetaDataValue(product.meta_data, '_formation_prerequis'),
+      prerequis: this.splitAndTrimLines(this.findMetaDataValue(product.meta_data, '_formation_prerequis')),
       lieu: this.findMetaDataValue(product.meta_data, '_formation_lieu'),
       createurId: this.findMetaDataValue(product.meta_data, '_createur_id'),
+      imageUrl: product.images.length > 0 ? product.images[0].src : '',
     };
   }
 

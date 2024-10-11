@@ -33,8 +33,6 @@ export class Router {
   private handlePopState(): void {
     const path = window.location.pathname;
     const route = this.findMatchingRoute(path);
-    console.log('route:', route);
-    console.log('path:', path);
     if (route) {
       this.setCurrentComponent(() => route.component);
     } else {
@@ -44,7 +42,6 @@ export class Router {
 
   public findMatchingRoute(path: string): Route | undefined {
     const trimmedPath = path.startsWith(BASE_PATH) ? path.slice(BASE_PATH.length) : path;
-    console.log('trimmedPath:', trimmedPath);
 
     return this.routes.find(route => {
       if (route.exact) {

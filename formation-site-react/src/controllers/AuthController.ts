@@ -1,20 +1,34 @@
-// src/controllers/AuthController.ts
-
+import { Observable, from, lastValueFrom } from 'rxjs';
+import { map, catchError } from 'rxjs/operators';
 import AuthService from '../services/AuthService';
 
 class AuthController {
-  async login(username: string, password: string): Promise<boolean> {
-    return await AuthService.login(username, password);
+  login(username: string, password: string): Observable<boolean> {
+    return AuthService.login(username, password).pipe(
+      map(() => true),
+      catchError((error) => {
+        console.error('Login failed', error);
+        return from(Promise.resolve(false));
+      })
+    );
   }
 
-  async register(username:string, email: string, password: string): Promise<boolean> {
-    return await AuthService.register(username, email, password);
+  register(username: string, email: string, password: string): Observable<boolean> {
+    return AuthService.register(username, email, password).pipe(
+      map(() => true),
+      catchError((error) => {
+        if (error == 'DoubleRequest') {
+          return from(Promise.resolve(true));
+        }
+        console.error('Registration failed', error);
+        return from(Promise.resolve(false));
+      })
+    );
   }
 
-  async loginWithGoogle(): Promise<boolean> {
-    return await true;
+  loginWithGoogle(): Observable<boolean> {
+    return from(Promise.reject(new Error('Google login not implemented')));
   }
-
 
   logout(): void {
     AuthService.logout();
@@ -24,8 +38,20 @@ class AuthController {
     return AuthService.isAuthenticated();
   }
 
-  async getUserCourses(): Promise<any[]> {
-    return await AuthService.getUserCourses();
+  getUserCourses(): Observable<any[]> {
+    return AuthService.getUserCourses();
+  }
+
+  async loginAsync(username: string, password: string): Promise<boolean> {
+    return await lastValueFrom(this.login(username, password));
+  }
+
+  async registerAsync(username: string, email: string, password: string): Promise<boolean> {
+    return await lastValueFrom(this.register(username, email, password));
+  }
+
+  async getUserCoursesAsync(): Promise<any[]> {
+    return await lastValueFrom(this.getUserCourses());
   }
 }
 

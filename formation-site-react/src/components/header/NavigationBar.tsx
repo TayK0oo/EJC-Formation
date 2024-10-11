@@ -2,6 +2,8 @@ import React, { useState, useEffect } from 'react';
 import styles from '../../styles/NavigationBar.module.css';
 import navStyles from '../../styles/NavSideBar.module.css';
 import userIcon from '../../ressources/images/user.svg';
+import Unknow from '../../ressources/images/interro.svg';
+
 import LoginView from '../../pages/LoginView';
 
 import { Formation } from '../../models/classFormation';
@@ -91,7 +93,7 @@ const NavigationBarCompo: React.FC<NavigationBarCompoProps> = ({ navigate, toggl
                       value.map((category: any, index: number) => (
                         <div key={index} className={styles.category}>
                           <div className={styles.categoryHeader}>
-                            <img src={category.icon} alt={category.title} className={styles.icon} />
+                            <img src={category.icon || Unknow} alt={category.title} className={styles.icon} />
                             <h3>{category.title}</h3>
                           </div>
                           {renderFormations(category)}

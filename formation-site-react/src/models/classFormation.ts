@@ -9,7 +9,8 @@ export interface Formation {
     competencesAcquises: string[];
     publicCible: string[];
     modalites: string;
-    prerequis: string;
+    prerequis: string[];
     lieu: string;
     createurId: string;
+    imageUrl: string;
   }

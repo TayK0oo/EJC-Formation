@@ -1,168 +1,163 @@
 {
   "formations": [
-  {
-  "id": "ENT002",
-  "titre": "Créer son entreprise",
-  "categorie": "ENTREPRENEURIAT",
-  "duree": "30h",
-  "tarif": "1500€",
-  "description": "Apprenez les étapes clés pour créer et lancer votre propre entreprise avec succès.",
-  "competencesAcquises": [
-  "Élaboration d'un business plan",
-  "Étude de marché",
-  "Aspects juridiques et financiers",
-  "Stratégie de lancement"
-  ],
-  "publicCible": [
-  "Entrepreneurs",
-  "Porteurs de projet"
-  ],
-  "modalites": "En ligne",
-  "prerequis": "Avoir un projet d'entreprise",
-  "lieu": "Plateforme d'apprentissage en ligne",
-  "createurId": "FORM006"
-  },
-  
-  {
-  "id": "COM002",
-  "titre": "Communication assertive / bienveillante",
-  "categorie": "COMMUNICATION",
-  "duree": "14h",
-  "tarif": "850€",
-  "description": "Développez une communication assertive et bienveillante pour des interactions professionnelles plus efficaces et harmonieuses.",
-  "competencesAcquises": [
-  "Affirmation de soi",
-  "Feedback constructif",
-  "Gestion des émotions",
-  "Communication positive"
-  ],
-  "publicCible": [
-  "Managers",
-  "Équipes",
-  "Professionnels en relation client"
-  ],
-  "modalites": "En ligne",
-  "prerequis": "Aucun prérequis spécifique",
-  "lieu": "Plateforme d'apprentissage en ligne",
-  "createurId": "FORM010"
-  },
-  {
-  "id": "COM003",
-  "titre": "Outils de Communication en équipe",
-  "categorie": "COMMUNICATION",
-  "duree": "12h",
-  "tarif": "750€",
-  "description": "Découvrez et maîtrisez les outils essentiels pour une communication efficace au sein d'une équipe.",
-  "competencesAcquises": [
-  "Utilisation d'outils collaboratifs",
-  "Communication asynchrone",
-  "Gestion de réunions à distance",
-  "Partage d'information efficace"
-  ],
-  "publicCible": [
-  "Équipes de travail",
-  "Managers",
-  "Chefs de projet"
-  ],
-  "modalites": "En ligne",
-  "prerequis": "Connaissance de base en informatique",
-  "lieu": "Plateforme d'apprentissage en ligne",
-  "createurId": "FORM011"
-  },
-  {
-  "id": "EFF001",
-  "titre": "Valorisation des parcours",
-  "categorie": "EFFICACITE PROFESSIONNELLE / MOTIVATION",
-  "duree": "8h",
-  "tarif": "500€",
-  "description": "Apprenez à mettre en valeur votre parcours professionnel et à identifier vos compétences clés.",
-  "competencesAcquises": [
-  "Analyse de compétences",
-  "Rédaction de CV efficace",
-  "Préparation d'entretien",
-  "Personal branding"
-  ],
-  "publicCible": [
-  "Demandeurs d'emploi",
-  "Professionnels en transition"
-  ],
-  "modalites": "En ligne",
-  "prerequis": "Avoir un parcours professionnel à valoriser",
-  "lieu": "Plateforme d'apprentissage en ligne",
-  "createurId": "FORM012"
-  },
-  
-  {
-  "id": "EFF003",
-  "titre": "Fresque du conflit",
-  "categorie": "EFFICACITE PROFESSIONNELLE / MOTIVATION",
-  "duree": "6h",
-  "tarif": "400€",
-  "description": "Apprenez à analyser et résoudre les conflits de manière créative et collaborative.",
-  "competencesAcquises": [
-  "Analyse de conflits",
-  "Techniques de résolution créative",
-  "Communication en situation de conflit",
-  "Médiation"
-  ],
-  "publicCible": [
-  "Managers",
-  "Équipes",
-  "Professionnels RH"
-  ],
-  "modalites": "En ligne",
-  "prerequis": "Aucun prérequis spécifique",
-  "lieu": "Plateforme d'apprentissage en ligne",
-  "createurId": "FORM014"
-  },
-  
-
-
-{
-  "id": "MAN001",
-  "titre": "Leadership",
-  "categorie": "MANAGEMENT",
-  "duree": "16h",
-  "tarif": "900€",
-  "description": "Développez vos compétences en leadership pour inspirer et motiver votre équipe.",
-  "competencesAcquises": [
-    "Styles de leadership",
-    "Motivation des équipes",
-    "Gestion des conflits",
-    "Communication efficace"
-  ],
-  "publicCible": [
-    "Managers",
-    "Chefs d'équipe",
-    "Entrepreneurs"
-  ],
-  "modalites": "En ligne",
-  "prerequis": "Aucun prérequis spécifique",
-  "lieu": "Plateforme d'apprentissage en ligne",
-  "createurId": "FORM021"
-},
-{
-  "id": "MAN002",
-  "titre": "Prise de décision",
-  "categorie": "MANAGEMENT",
-  "duree": "14h",
-  "tarif": "800€",
-  "description": "Apprenez des techniques de prise de décision efficaces pour des choix stratégiques.",
-  "competencesAcquises": [
-    "Analyse des options",
-    "Évaluation des risques",
-    "Prise de décision en groupe",
-    "Techniques de brainstorming"
-  ],
-  "publicCible": [
-    "Managers",
-    "Chefs de projet",
-    "Dirigeants"
-  ],
-  "modalites": "En ligne",
-  "prerequis": "Aucun prérequis spécifique",
-  "lieu": "Plateforme d'apprentissage en ligne",
-  "createurId": "FORM022"
-}
-]
+    {
+      "id": "ENT002",
+      "titre": "Créer son entreprise",
+      "categorie": "ENTREPRENEURIAT",
+      "duree": "30h",
+      "tarif": "1500€",
+      "description": "Apprenez les étapes clés pour créer et lancer votre propre entreprise avec succès.",
+      "competencesAcquises": [
+        "Élaboration d'un business plan",
+        "Étude de marché",
+        "Aspects juridiques et financiers",
+        "Stratégie de lancement"
+      ],
+      "publicCible": [
+        "Entrepreneurs",
+        "Porteurs de projet"
+      ],
+      "modalites": "En ligne",
+      "prerequis": ["Avoir un projet d'entreprise"],
+      "lieu": "Plateforme d'apprentissage en ligne",
+      "createurId": "FORM006"
+    },
+    {
+      "id": "COM002",
+      "titre": "Communication assertive / bienveillante",
+      "categorie": "COMMUNICATION",
+      "duree": "14h",
+      "tarif": "850€",
+      "description": "Développez une communication assertive et bienveillante pour des interactions professionnelles plus efficaces et harmonieuses.",
+      "competencesAcquises": [
+        "Affirmation de soi",
+        "Feedback constructif",
+        "Gestion des émotions",
+        "Communication positive"
+      ],
+      "publicCible": [
+        "Managers",
+        "Équipes",
+        "Professionnels en relation client"
+      ],
+      "modalites": "En ligne",
+      "prerequis": ["Aucun prérequis spécifique"],
+      "lieu": "Plateforme d'apprentissage en ligne",
+      "createurId": "FORM010"
+    },
+    {
+      "id": "COM003",
+      "titre": "Outils de Communication en équipe",
+      "categorie": "COMMUNICATION",
+      "duree": "12h",
+      "tarif": "750€",
+      "description": "Découvrez et maîtrisez les outils essentiels pour une communication efficace au sein d'une équipe.",
+      "competencesAcquises": [
+        "Utilisation d'outils collaboratifs",
+        "Communication asynchrone",
+        "Gestion de réunions à distance",
+        "Partage d'information efficace"
+      ],
+      "publicCible": [
+        "Équipes de travail",
+        "Managers",
+        "Chefs de projet"
+      ],
+      "modalites": "En ligne",
+      "prerequis": ["Connaissance de base en informatique"],
+      "lieu": "Plateforme d'apprentissage en ligne",
+      "createurId": "FORM011"
+    },
+    {
+      "id": "EFF001",
+      "titre": "Valorisation des parcours",
+      "categorie": "EFFICACITE PROFESSIONNELLE / MOTIVATION",
+      "duree": "8h",
+      "tarif": "500€",
+      "description": "Apprenez à mettre en valeur votre parcours professionnel et à identifier vos compétences clés.",
+      "competencesAcquises": [
+        "Analyse de compétences",
+        "Rédaction de CV efficace",
+        "Préparation d'entretien",
+        "Personal branding"
+      ],
+      "publicCible": [
+        "Demandeurs d'emploi",
+        "Professionnels en transition"
+      ],
+      "modalites": "En ligne",
+      "prerequis": ["Avoir un parcours professionnel à valoriser"],
+      "lieu": "Plateforme d'apprentissage en ligne",
+      "createurId": "FORM012"
+    },
+    {
+      "id": "EFF003",
+      "titre": "Fresque du conflit",
+      "categorie": "EFFICACITE PROFESSIONNELLE / MOTIVATION",
+      "duree": "6h",
+      "tarif": "400€",
+      "description": "Apprenez à analyser et résoudre les conflits de manière créative et collaborative.",
+      "competencesAcquises": [
+        "Analyse de conflits",
+        "Techniques de résolution créative",
+        "Communication en situation de conflit",
+        "Médiation"
+      ],
+      "publicCible": [
+        "Managers",
+        "Équipes",
+        "Professionnels RH"
+      ],
+      "modalites": "En ligne",
+      "prerequis": ["Aucun prérequis spécifique"],
+      "lieu": "Plateforme d'apprentissage en ligne",
+      "createurId": "FORM014"
+    },
+    {
+      "id": "MAN001",
+      "titre": "Leadership",
+      "categorie": "MANAGEMENT",
+      "duree": "16h",
+      "tarif": "900€",
+      "description": "Développez vos compétences en leadership pour inspirer et motiver votre équipe.",
+      "competencesAcquises": [
+        "Styles de leadership",
+        "Motivation des équipes",
+        "Gestion des conflits",
+        "Communication efficace"
+      ],
+      "publicCible": [
+        "Managers",
+        "Chefs d'équipe",
+        "Entrepreneurs"
+      ],
+      "modalites": "En ligne",
+      "prerequis": ["Aucun prérequis spécifique"],
+      "lieu": "Plateforme d'apprentissage en ligne",
+      "createurId": "FORM021"
+    },
+    {
+      "id": "MAN002",
+      "titre": "Prise de décision",
+      "categorie": "MANAGEMENT",
+      "duree": "14h",
+      "tarif": "800€",
+      "description": "Apprenez des techniques de prise de décision efficaces pour des choix stratégiques.",
+      "competencesAcquises": [
+        "Analyse des options",
+        "Évaluation des risques",
+        "Prise de décision en groupe",
+        "Techniques de brainstorming"
+      ],
+      "publicCible": [
+        "Managers",
+        "Chefs de projet",
+        "Dirigeants"
+      ],
+      "modalites": "En ligne",
+      "prerequis": ["Aucun prérequis spécifique"],
+      "lieu": "Plateforme d'apprentissage en ligne",
+      "createurId": "FORM022"
+    }
+  ]
 }
