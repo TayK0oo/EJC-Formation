@@ -1,0 +1,17 @@
+
+  .formateurs h1{
+
+    color: var(--color-white);
+    font-size: 300%;
+    font-family: var(--font-family-transforma);
+    margin-bottom: 5%;
+  }
+
+  @media (max-width: 768px) {
+ 
+
+    .formateurs h1{
+      font-size: 200%;
+      margin-bottom: 10%;
+    }
+    }

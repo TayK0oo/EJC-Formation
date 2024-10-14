@@ -4,7 +4,10 @@ import SearchBar from '../components/home/SearchBar';
 import NavigationBar from '../components/header/NavigationBar';
 import Logo from '../components/common/Logo';
 import FormationsOverView from '../components/home/FormationsOverView';
+import FormateursOverView from '../components/home/FormateursOverView';
+
 import styles from '../styles/HomePage.module.css';
+
 import { HomeController } from '../controllers/HomeController';
 import { Formation } from '../models/classFormation';
 import { FilterService } from '../services/FilterService';
@@ -47,6 +50,7 @@ const HomePage: React.FC<HomePageProps> = ({ navigate }) => {
         </div>
         <main className={styles.mainContent}>
           <FormationsOverView formations={formations} navigate={navigate} onFilterChange={applyFilters} />
+          <FormateursOverView navigate={navigate} />
         </main>
       </div>
 

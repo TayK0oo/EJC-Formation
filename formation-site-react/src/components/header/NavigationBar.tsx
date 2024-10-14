@@ -57,7 +57,7 @@ const NavigationBarCompo: React.FC<NavigationBarCompoProps> = ({ navigate, toggl
             <div 
               key={item.id} 
               className={styles.formation}
-              onClick={() => navigate(`/formations/${item.id}`)}
+              onClick={() => navigate(`/formations/${item.id}${item.idR}`)}
             >
               <p>{item.titre}</p>
             </div>
